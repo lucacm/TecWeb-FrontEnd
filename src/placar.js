@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./Fixtures.css";
 
-export default function Placar() {
+export default function Placar(props) {
+  const { awayTeam, date, homeTeam, score } = props;
   return (
-    // <p>Date: 19/12/200</p>
-    <section className="grid-template-columns-3">
-      <div className="item">BAR</div>
-      <div className="placar">
-        <div>2</div>
-        <div>X</div>
-        <div>5</div>
+    <div>
+      <div className="date">
+        Data: {date.substring(8, 10)}/{date.substring(5, 7)}/
+        {date.substring(0, 4)}
       </div>
-      <div className="item">REA</div>
-      <div className="item">AJA</div>
-      <div className="placar">
-        <div>2</div>
-        <div>X</div>
-        <div>5</div>
-      </div>
-      <div className="item">CHE</div>
-    </section>
+      <section className="grid-template-columns-3">
+        <div className="item">{homeTeam.substring(0, 3).toUpperCase()}</div>
+        <div className="placar">
+          <div>{score.substring(0, 1)}</div>
+          <div>X</div>
+          <div>{score.substring(4, 5)}</div>
+        </div>
+        <div className="item">{awayTeam.substring(0, 3).toUpperCase()}</div>
+      </section>
+    </div>
   );
 }

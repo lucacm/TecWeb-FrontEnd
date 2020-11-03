@@ -4,32 +4,34 @@ import Placar from "./placar";
 import axios from "axios";
 
 export default function Fixtures() {
-  var [usuarios, setUsuarios] = useState([
-    { username: "bananajohson", key: 1 },
-    { username: "jack", key: 2 },
-  ]);
-  const cors = require("cors");
+  var [data, setData] = useState([]);
+
   useEffect(() => {
     axios
       .get(
-        "https://cors-anywhere.herokuapp.com/http://livescore-api.com/api-client/fixtures/matches.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244"
+        "http://livescore-api.com/api-client/scores/history.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&from=2020-10-20"
       )
       .then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
-          console.log(resp);
-          return;
+          console.log(resp.data.data.match);
+          setData(resp.data.data.match);
         }
       });
-  });
-  // {/* <ul>
-  //   {usuarios.map((usuario) => (
-  //     <li key={usuarios.key}>{usuario.username}</li>
-  //   ))}
-  // </ul> */}
+  }, []);
   return (
     <div>
-      <h2>Próximos Jogos</h2>
-      <Placar />
+      <h2 className="texto">Próximos Jogos</h2>
+      {data.map((match, index) => {
+        return (
+          <Placar
+            awayTeam={match.away_name}
+            date={match.date}
+            homeTeam={match.home_name}
+            score={match.ft_score}
+            key={match.id}
+          />
+        );
+      })}
     </div>
   );
 }
