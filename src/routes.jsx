@@ -1,14 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-
+import { Router, Route, Redirect, Switch } from "react-router-dom";
+import history from "./history";
 import Fixtures from "./fixtures";
-import Players from "./screens/players";
+import Teste from "./teste";
 
 export default (props) => (
-  <Router>
-    {/* <Route path="/fixtures" component={Fixtures} />
-    <Redirect from="*" to="/fixtures" /> */}
-    <Route path="/screens/players" component={Players} />
-    <Redirect from="*" to="/screens/players" />
+  <Router history={history}>
+    <Switch>
+      <Route exatct path="/fixtures" component={Fixtures} />
+      <Route exatct path="/teste" component={Teste} />
+      <Redirect from="*" to="/fixtures" />
+      <Route path="/screens/players" component={Players} />
+      {/* <Redirect from="*" to="/screens/players" /> */}
+    </Switch>
   </Router>
 );
