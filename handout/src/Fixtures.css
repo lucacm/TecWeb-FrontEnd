@@ -1,0 +1,22 @@
+.grid-template-columns-3 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  width: 50rem;
+}
+
+/* Estilos Gerais */
+.item {
+  margin: 5px;
+  background: tomato;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.placar {
+  margin: 5px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  background: tomato;
+}
