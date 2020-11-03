@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Fixtures.css";
-import history from "./history";
+import "../css/Fixtures.css"
+import history from "../history";
 
 export default function Placar(props) {
   const { awayTeam, date, homeTeam, score } = props;

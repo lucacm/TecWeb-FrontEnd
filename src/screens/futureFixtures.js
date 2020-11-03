@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./Fixtures.css";
+import "../css/Fixtures.css";
 import axios from "axios";
-import Placar from "./placar";
+import Placar from "../components/placar";
+import { TailSpin } from '@agney/react-loading';
 
-export default function FutereFixtures() {
+export default function FutureFixtures() {
   var [Data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -15,13 +17,19 @@ export default function FutereFixtures() {
         if (Math.floor(resp.status / 100 === 2)) {
           console.log(resp.data.data.match);
           setData(resp.data.data.match);
+          setLoading(false)
         }
       });
   }, []);
   return (
-    <div>
+    <div className="container">
       <h2>LIVE GAMES</h2>
-      {Data.map((match, index) => {
+      {
+      loading 
+      ?
+      <TailSpin width="80" />
+      :
+      Data.map((match, index) => {
         return (
           <Placar
             awayTeam={match.away_name}

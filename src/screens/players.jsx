@@ -39,7 +39,7 @@ export default function Players() {
               <p>{player.goals} {player.goals>1 ? "gols" : "gol"}</p>
             </div>
             <hr color="#91433f" size="1.5" width="97%" />
-            <p class="textGoals">Esse jogador tem média de {player.goals/player.played} {player.goals/player.played>1?"gols":"gol"} por jogo.</p>
+            <p class="textGoals">Esse jogador tem média de {(player.goals/player.played).toFixed(2)} {player.goals/player.played>1?"gols":"gol"} por jogo.</p>
           </div>
         )
       })}
