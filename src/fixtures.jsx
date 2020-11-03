@@ -20,7 +20,7 @@ export default function Fixtures() {
   }, []);
   return (
     <div>
-      <h2 className="texto">Próximos Jogos</h2>
+      <h2 className="texto">Jogos Passados</h2>
       {data.map((match, index) => {
         return (
           <Placar
