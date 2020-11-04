@@ -6,7 +6,6 @@ export default function Login(){
     const [listaUser, setListaUser] = useState([]);
     const [usuario, setUsuario] = useState({user: '', senha: ''});
     let possuiCadastro = false;
-    // const [possuiCadastro, setPossuiCadastro] = useState(false)
 
     useEffect(() => {
         axios.get("http://localhost:3003/userlist")
@@ -34,7 +33,10 @@ export default function Login(){
                     if (person.user === user){
                         possuiCadastro = true
                         if (person.senha === password){
-                            history.push("../fixtures")
+                            history.push({
+                                pathname: "../fixtures",
+                                state: { id: person._id }
+                            })
                         } else {
                             alert("Dados incorretos. Corriga e tente novamente")
                         }

@@ -14,9 +14,11 @@ export default function Subscribe(){
             console.log(usuario)
             axios.post('http://localhost:3003/users/', usuario)
             .then(resp => {
-                console.log(resp)
                 if(Math.floor(resp.status/100) === 2) {
-                    console.log("Usuário cadastrado")
+                    history.push({
+                        pathname: "../fixtures",
+                        state: { id: resp.data._id }
+                    })
                 }
                 return;
             })

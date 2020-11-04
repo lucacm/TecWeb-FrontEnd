@@ -15,9 +15,9 @@ export default (props) => (
       <Route path="/screens/players" component={Players} />
       <Route path="/screens/login" component={Login} />
       <Route path="/screens/subscribe" component={Subscribe} />
-      <Redirect from="*" to="/fixtures" />
+      {/* <Redirect from="*" to="/fixtures" /> */}
       {/* <Redirect from="*" to="/screens/players" /> */}
-      {/* <Redirect from="*" to="/screens/login" /> */}
+      <Redirect from="*" to="/screens/login" />
       {/* <Redirect from="*" to="/screens/subscribe" /> */}
     </Switch>
   </Router>
