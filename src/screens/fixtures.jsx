@@ -3,15 +3,15 @@ import "../css/Fixtures.css";
 import Placar from "../components/placar";
 import axios from "axios";
 import { TailSpin } from "@agney/react-loading";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import Footer from "../components/footer";
 
 export default function Fixtures(props) {
   var [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  let id = "";
+  // let id = "";
 
-  const location = useLocation();
+  // const location = useLocation();
 
   // useEffect(() => {
   //   id = props.location.state.id;

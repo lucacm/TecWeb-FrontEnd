@@ -16,7 +16,7 @@ export default function Lineup(props) {
 
   useEffect(() => {
 
-    if (id != ""){
+    if (id !== ""){
 
       const string =
       "http://livescore-api.com/api-client/matches/lineups.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&match_id=" + id;

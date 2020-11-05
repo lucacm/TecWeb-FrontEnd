@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../css/Fixtures.css";
 import history from "../history";
 
 export default function Placar(props) {
   const { awayTeam, date, homeTeam, score, chave } = props;
-  console.log(date);
   return (
     <div className="title">
       <div className="date">
@@ -22,7 +21,7 @@ export default function Placar(props) {
           {homeTeam.substring(0, 3).toUpperCase()}
         </div>
 
-        {score == undefined ? (
+        {score === undefined ? (
           <div
             className="placar"
             onClick={() =>

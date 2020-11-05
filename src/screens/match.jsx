@@ -25,7 +25,7 @@ export default function Match(props) {
   }, [location]);
 
   useEffect(() => {
-    if (date!=""){
+    if (date!==""){
       setLoading(false)
     }
   }, [date])
