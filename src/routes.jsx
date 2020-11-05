@@ -8,6 +8,7 @@ import match from "./screens/match";
 import Players from "../src/screens/players";
 import Login from "./screens/login";
 import Subscribe from "./screens/subscribe";
+import Lineup from "./screens/lineup";
 
 export default (props) => (
   <Router history={history}>
@@ -16,12 +17,13 @@ export default (props) => (
       <Route exatct path="/liveFixtures" component={liveFixtures} />
       <Route exatct path="/futureFixtures" component={futureFixtures} />
       <Route exatct path="/match" component={match} />
+      <Route exatct path="/lineup" component={Lineup} />
       <Route path="/screens/players" component={Players} />
       <Route path="/screens/login" component={Login} />
       <Route path="/screens/subscribe" component={Subscribe} />
-      {/* <Redirect from="*" to="/fixtures" /> */}
+      <Redirect from="*" to="/fixtures" />
       {/* <Redirect from="*" to="/screens/players" /> */}
-      <Redirect from="*" to="/screens/login" />
+      {/* <Redirect from="*" to="/screens/login" /> */}
       {/* <Redirect from="*" to="/screens/subscribe" /> */}
     </Switch>
   </Router>

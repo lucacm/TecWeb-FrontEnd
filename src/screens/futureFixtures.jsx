@@ -26,7 +26,9 @@ export default function LiveFixtures() {
     // <div>Icons made by <a href="https://www.flaticon.com/authors/mavadee" title="mavadee">mavadee</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     // <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     <div className="container">
-      <h2>Próximos Jogos</h2>
+      <div className="title">
+        <h2>Próximos Jogos</h2>
+      </div>
       {loading ? (
         <TailSpin width="80" />
       ) : (

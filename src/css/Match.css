@@ -10,12 +10,13 @@
 .menu {
   display: flex;
   background-color: tomato;
-  width: 60%;
+  width: 50%;
   height: 5rem;
   margin-top: 5rem;
   border-radius: 30px;
   align-items: center;
   justify-content: space-around;
+  align-self: center;
 }
 .icone1 {
   height: 80%;
@@ -33,4 +34,18 @@
   justify-content: space-around;
   flex-direction: row;
   width: 60%;
+  align-self: center;
+  margin-top: 2rem;
+}
+.times {
+  display: flex;
+  flex-direction: column;
+  width: 5rem;
+  align-items: center;
+  text-align: center;
+}
+.data {
+  align-self: center;
+  margin-top: 5rem;
+  font-size: 40px;
 }

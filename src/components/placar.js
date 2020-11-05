@@ -3,7 +3,7 @@ import "../css/Fixtures.css";
 import history from "../history";
 
 export default function Placar(props) {
-  const { awayTeam, date, homeTeam, score } = props;
+  const { awayTeam, date, homeTeam, score, chave } = props;
   console.log(date);
   return (
     <div className="title">
@@ -23,13 +23,41 @@ export default function Placar(props) {
         </div>
 
         {score == undefined ? (
-          <div className="placar" onClick={() => history.push("/match")}>
+          <div
+            className="placar"
+            onClick={() =>
+              history.push({
+                pathname: "/match",
+                state: {
+                  id: chave,
+                  awayTeam: awayTeam,
+                  date: date,
+                  homeTeam: homeTeam,
+                  score: score,
+                },
+              })
+            }
+          >
             <div>-</div>
             <div>X</div>
             <div>-</div>
           </div>
         ) : (
-          <div className="placar" onClick={() => history.push("/match")}>
+          <div
+            className="placar"
+            onClick={() =>
+              history.push({
+                pathname: "/match",
+                state: {
+                  id: chave,
+                  awayTeam: awayTeam,
+                  homeTeam: homeTeam,
+                  date: date,
+                  score: score,
+                },
+              })
+            }
+          >
             {" "}
             <div>{score.substring(0, 1)}</div>
             <div>X</div>

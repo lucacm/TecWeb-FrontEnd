@@ -12,10 +12,10 @@ export default function Fixtures(props) {
 
   const location = useLocation();
 
-  useEffect(() => {
-    id = props.location.state.id;
-    console.log(id);
-  }, [location]);
+  // useEffect(() => {
+  //   id = props.location.state.id;
+  //   console.log(id);
+  // }, [location]);
 
   useEffect(() => {
     axios
@@ -24,7 +24,7 @@ export default function Fixtures(props) {
       )
       .then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
-          console.log(resp.data.data.match);
+          // console.log(resp.data.data.match);
           setData(resp.data.data.match);
           setLoading(false);
         }
@@ -32,7 +32,9 @@ export default function Fixtures(props) {
   }, []);
   return (
     <div className="container">
-      <h2 className="texto">Jogos Passados</h2>
+      <div className="title">
+        <h2 className="texto">Jogos Passados</h2>
+      </div>
       {loading ? (
         <TailSpin width="80" />
       ) : (
@@ -44,29 +46,11 @@ export default function Fixtures(props) {
               homeTeam={match.home_name}
               score={match.ft_score}
               key={match.id}
+              chave={match.id}
             />
           );
         })
       )}
-      {/* <div className="title">
-        <h2 className="texto">Jogos Passados</h2>
-      </div>
-      {
-      loading
-      ?
-      <TailSpin width="80" />
-      :
-      data.map((match, index) => {
-        return (
-          <Placar
-            awayTeam={match.away_name}
-            date={match.date}
-            homeTeam={match.home_name}
-            score={match.ft_score}
-            key={match.id}
-          />
-        );
-      })} */}
     </div>
   );
 }

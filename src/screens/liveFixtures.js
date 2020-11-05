@@ -23,7 +23,9 @@ export default function LiveFixtures() {
   }, []);
   return (
     <div className="container">
-      <h2>Ao vivo</h2>
+      <div className="title">
+        <h2>Ao vivo</h2>
+      </div>
       {loading ? (
         <TailSpin width="80" />
       ) : (
@@ -39,25 +41,6 @@ export default function LiveFixtures() {
           );
         })
       )}
-      {/* <div className="title">
-        <h2>LIVE GAMES</h2>
-      </div>
-      {
-      loading 
-      ?
-      <TailSpin width="80" />
-      :
-      Data.map((match, index) => {
-        return (
-          <Placar
-            awayTeam={match.away_name}
-            date={match.time}
-            homeTeam={match.home_name}
-            score={match.score}
-            key={match.id}
-          />
-        );
-      })} */}
     </div>
   );
 }
