@@ -6,7 +6,7 @@ export default function Placar(props) {
   const { awayTeam, date, homeTeam, score } = props;
   console.log(date);
   return (
-    <div>
+    <div className="title">
       <div className="date">
         {date.length < 5 ? (
           <div>Tempo : {date}</div>
