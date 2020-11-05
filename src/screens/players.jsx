@@ -24,16 +24,18 @@ export default function Players() {
     
   return (
     <div className="container">
-      <h1> Artilharia </h1>
+      <div className="title">
+        <h1> Artilharia </h1>
+      </div>
       <hr color="#91433f" size="1.5" width="70%" />
       { 
       loading 
       ?
-      <TailSpin width="80" />
+      <TailSpin className="title" width="80" />
       : 
       data.map((player, index) => {
         return (
-          <div className="box" key={index}>
+          <div className="box title" key={index}>
             <div class="goals">
               <h4>{player.name}</h4>
               <p>{player.goals} {player.goals>1 ? "gols" : "gol"}</p>

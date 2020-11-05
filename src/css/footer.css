@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* background-color: #3b275c; */
+    width: 100%;
+    padding-top: 2rem;
+    margin-top: 60px;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    position: static;
+    /* position: fixed; */
+    background-color: rgba(20,15,36, 0.8);
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.element {
+    margin-top: 0.4rem;
+    margin-bottom: 0.3rem;
+    font-size: 10px;
+}
+
+.image{
+    margin-bottom: 50px;
+    color: white
+}

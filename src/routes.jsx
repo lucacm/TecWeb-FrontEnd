@@ -8,6 +8,7 @@ import match from "./screens/match";
 import Players from "../src/screens/players";
 import Login from "./screens/login";
 import Subscribe from "./screens/subscribe";
+import Groups from "./screens/groups";
 
 export default (props) => (
   <Router history={history}>
@@ -19,9 +20,11 @@ export default (props) => (
       <Route path="/screens/players" component={Players} />
       <Route path="/screens/login" component={Login} />
       <Route path="/screens/subscribe" component={Subscribe} />
+      <Route path="/screens/groups" component={Groups} />
       {/* <Redirect from="*" to="/fixtures" /> */}
+      <Redirect from="*" to="/screens/groups" />
       {/* <Redirect from="*" to="/screens/players" /> */}
-      <Redirect from="*" to="/screens/login" />
+      {/* <Redirect from="*" to="/screens/login" /> */}
       {/* <Redirect from="*" to="/screens/subscribe" /> */}
     </Switch>
   </Router>
