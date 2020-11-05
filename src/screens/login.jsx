@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
 import history from "../history";
+import "../css/auth.css";
+
 
 export default function Login(){
     const [listaUser, setListaUser] = useState([]);
@@ -17,12 +19,6 @@ export default function Login(){
         })
         .catch(e => console.log(e))
     }, [])
-
-    var listaUsuarios = listaUser.map((user, id) => {
-        return(
-        <li key={id}>{user.user}</li>
-        )
-    })
 
 
     function confirmSenha(user, password){
@@ -70,22 +66,23 @@ export default function Login(){
 
 
     return(
-        <div>
-            <ul> {listaUsuarios} </ul>
-            <ul>
-                <li>
-                    <label>Username</label>
-                    <input id="user" value={usuario.user} name="user" onChange={handleChange}/>
-                    <label>Senha</label>
-                    <input id="senha" type="password" value={usuario.senha} name="senha" onChange={handleChangePassword}/>
-                </li>
-                <li>
-                    <button onClick={entrar}>Entrar</button>
-                </li>
-                <li>
-                    <button onClick={() => history.push("./subscribe")}>Cadastre-se</button>
-                </li>
-            </ul>
+        <div className="container">
+            <div className="title1">
+                <h2>Seja bem-vindo ao Champions Hub!</h2>
+            </div>
+                <hr color="#91433f" size="1.5" width="90%" />
+            <div className="titles">
+                <p>Aqui, você tem a Champions League na palma das mãos.</p>
+            </div>
+            <div className="card">
+            <label>usuário</label>
+            <input id="user" value={usuario.user} name="user" onChange={handleChange}/>
+            <label>senha</label>
+            <input id="senha" type="password" value={usuario.senha} name="senha" onChange={handleChangePassword}/>
+
+            <button onClick={entrar}>Entrar</button>
+            </div>
+            <button onClick={() => history.push("./subscribe")}>Cadastre-se</button>
         </div>
 
     ); 

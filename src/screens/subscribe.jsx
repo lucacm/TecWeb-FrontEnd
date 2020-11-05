@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import history from "../history";
-
+import "../css/auth.css";
 
 
 export default function Subscribe(){

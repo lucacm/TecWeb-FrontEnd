@@ -1,0 +1,42 @@
+.container {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.title1 {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    font-family: "Times New Roman", Times, serif;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.5);
+    transition: 0.6s;
+    border-radius: 1px;
+}
+
+.titles {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    align-self: center; 
+    justify-content: center;
+    font-family: "Times New Roman", Times, serif;
+    padding: 0.5rem;
+    flex-direction: column;
+    width: 40%;
+    height: 15rem;
+    box-shadow: 0 4px 8px 0 rgba(18, 14, 39, 0.5);
+    transition: 0.3s;
+    border-radius: 5px;
+  }
