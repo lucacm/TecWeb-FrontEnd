@@ -23,8 +23,8 @@ export default (props) => (
       <Route path="/screens/login" component={Login} />
       <Route path="/screens/subscribe" component={Subscribe} />
       <Route path="/screens/groups" component={Groups} />
-      <Redirect from="*" to="/fixtures" />
       {/* <Redirect from="*" to="/fixtures" /> */}
+      <Redirect from="*" to="/fixtures" />
       {/* <Redirect from="*" to="/screens/groups" /> */}
       {/* <Redirect from="*" to="/screens/players" /> */}
       {/* <Redirect from="*" to="/screens/login" /> */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import axios from "axios"
 import history from "../history";
 import "../css/auth.css";
@@ -12,7 +12,7 @@ export default function Login(){
         axios.get("http://localhost:3003/userlist")
         .then(resp => {
             if (Math.floor(resp.status / 100 === 2)) {
-                resp.data.map((person, id) => {
+                resp.data.forEach((person, id) => {
                     if (person.user === user){
                         possuiCadastro = true
                         if (person.senha === password){
@@ -21,7 +21,7 @@ export default function Login(){
                                 state: { id: person._id }
                             })
                         } else {
-                            alert("Dados incorretos. Corriga e tente novamente")
+                            alert("Dados incorretos. Corriga e tente novamente")                            
                         }
                     }
                 }) 
