@@ -24,6 +24,7 @@
     align-self: center;
     align-items: center;
     flex-direction: column;
+    font-family: "Times New Roman", Times, serif;
     width: 100%;
 }
 
@@ -32,6 +33,7 @@
     align-self: center; 
     justify-content: center;
     font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
     padding: 0.5rem;
     flex-direction: column;
     width: 40%;
@@ -39,4 +41,32 @@
     box-shadow: 0 4px 8px 0 rgba(18, 14, 39, 0.5);
     transition: 0.3s;
     border-radius: 5px;
-  }
+}
+
+.button {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #282c34;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px 10px 10px 10px;
+    width: 30%;
+    align-self: center;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.input {
+    border-radius: 10px 10px 10px 10px;
+    /* width: 90%; */
+    height: 1.4rem;
+    margin-left: 0.9rem;
+    margin-right: 0.9rem;
+}
+
+.label {
+    margin-left: 20px;
+}

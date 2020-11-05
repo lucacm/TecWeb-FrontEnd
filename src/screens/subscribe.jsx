@@ -37,18 +37,16 @@ export default function Subscribe(){
     }
 
     return(
-        <div>
-            <ul>
-                <li>
-                    <label>Username</label>
-                    <input id="user" value={usuario.user} name="user" onChange={handleChange}/>
-                    <label>Senha</label>
-                    <input id="senha" type="password" value={usuario.senha} name="senha" onChange={handleChangePassword}/>
-                </li>
-                <li>
-                    <button onClick={cadastrar}>Cadastrar</button>
-                </li>
-            </ul>
+        <div class="container">
+            <div className="card">
+                <p className="label">Crie seu cadastro agora mesmo!</p>
+                <label className="label">user</label>
+                <input className="input" id="user" value={usuario.user} name="user" onChange={handleChange}/>
+                <label className="label">senha</label>
+                <input className="input" id="senha" type="password" value={usuario.senha} name="senha" onChange={handleChangePassword}/>
+                <button className="button" onClick={cadastrar}>Cadastrar</button>
+            </div>
+
         </div>
 
     ); 

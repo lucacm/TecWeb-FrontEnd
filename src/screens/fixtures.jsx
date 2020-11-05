@@ -4,6 +4,7 @@ import Placar from "../components/placar";
 import axios from "axios";
 import { TailSpin } from "@agney/react-loading";
 import { useLocation } from "react-router-dom";
+import Footer from "../components/footer";
 
 export default function Fixtures(props) {
   var [data, setData] = useState([]);
@@ -51,6 +52,7 @@ export default function Fixtures(props) {
           );
         })
       )}
+      {!loading ? <Footer /> : ""}
     </div>
   );
 }

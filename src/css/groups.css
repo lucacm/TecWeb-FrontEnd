@@ -1,0 +1,31 @@
+.container {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.title {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}
+
+table {
+  border: 1px solid black;
+  width: 70%;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+th {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  margin: 15px;
+}
+td {
+  border-right: 1px solid black;
+  text-align: center;
+}
