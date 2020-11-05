@@ -23,7 +23,9 @@ export default function FutureFixtures() {
   }, []);
   return (
     <div className="container">
-      <h2>LIVE GAMES</h2>
+      <div className="title">
+        <h2>LIVE GAMES</h2>
+      </div>
       {
       loading 
       ?

@@ -33,7 +33,9 @@ export default function Fixtures(props) {
   }, []);
   return (
     <div className="container">
-      <h2 className="texto">Jogos Passados</h2>
+      <div className="title">
+        <h2 className="texto">Jogos Passados</h2>
+      </div>
       {
       loading
       ?

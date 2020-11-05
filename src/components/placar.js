@@ -5,7 +5,7 @@ import history from "../history";
 export default function Placar(props) {
   const { awayTeam, date, homeTeam, score } = props;
   return (
-    <div>
+    <div className="title">
       <div className="date">
         {date.length < 3 ? (
           <div>Tempo : {date}</div>

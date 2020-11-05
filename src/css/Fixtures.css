@@ -3,9 +3,17 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: auto;
   align-items: center;
+  align-self: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.title {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
 }
 
 .grid-template-columns-3 {
