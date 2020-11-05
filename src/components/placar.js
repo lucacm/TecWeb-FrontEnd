@@ -1,13 +1,14 @@
-import React from "react";
-import "../css/Fixtures.css"
+import React, { useState, useEffect } from "react";
+import "../css/Fixtures.css";
 import history from "../history";
 
 export default function Placar(props) {
   const { awayTeam, date, homeTeam, score } = props;
+  console.log(date);
   return (
     <div className="title">
       <div className="date">
-        {date.length < 3 ? (
+        {date.length < 5 ? (
           <div>Tempo : {date}</div>
         ) : (
           <div>
@@ -15,20 +16,29 @@ export default function Placar(props) {
             {date.substring(0, 4)}
           </div>
         )}
-        {/* Tempo : {date} */}
-        {/* Data: {date.substring(8, 10)}/{date.substring(5, 7)}/
-        {date.substring(0, 4)} */}
       </div>
       <section className="grid-template-columns-3">
-        <div className="item" onClick={() => history.push("/futureFixtures")}>
+        <div className="item1" onClick={() => history.push("/liveFixtures")}>
           {homeTeam.substring(0, 3).toUpperCase()}
         </div>
-        <div className="placar">
-          <div>{score.substring(0, 1)}</div>
-          <div>X</div>
-          <div>{score.substring(4, 5)}</div>
+
+        {score == undefined ? (
+          <div className="placar" onClick={() => history.push("/match")}>
+            <div>-</div>
+            <div>X</div>
+            <div>-</div>
+          </div>
+        ) : (
+          <div className="placar" onClick={() => history.push("/match")}>
+            {" "}
+            <div>{score.substring(0, 1)}</div>
+            <div>X</div>
+            <div>{score.substring(4, 5)}</div>
+          </div>
+        )}
+        <div className="item2" onClick={() => history.push("/futureFixtures")}>
+          {awayTeam.substring(0, 3).toUpperCase()}
         </div>
-        <div className="item">{awayTeam.substring(0, 3).toUpperCase()}</div>
       </section>
     </div>
   );

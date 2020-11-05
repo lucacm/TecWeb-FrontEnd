@@ -23,11 +23,21 @@
 }
 
 /* Estilos Gerais */
-.item {
+.item1 {
   margin: 5px;
   background: tomato;
   text-align: center;
   font-size: 1.5em;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.item2 {
+  margin: 5px;
+  background: tomato;
+  text-align: center;
+  font-size: 1.5em;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .placar {

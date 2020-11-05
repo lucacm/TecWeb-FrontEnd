@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../css/Fixtures.css";
 import axios from "axios";
 import Placar from "../components/placar";
-import { TailSpin } from '@agney/react-loading';
+import { TailSpin } from "@agney/react-loading";
 
-export default function FutureFixtures() {
+export default function LiveFixtures() {
   var [Data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,13 +17,29 @@ export default function FutureFixtures() {
         if (Math.floor(resp.status / 100 === 2)) {
           console.log(resp.data.data.match);
           setData(resp.data.data.match);
-          setLoading(false)
+          setLoading(false);
         }
       });
   }, []);
   return (
     <div className="container">
-      <div className="title">
+      <h2>Ao vivo</h2>
+      {loading ? (
+        <TailSpin width="80" />
+      ) : (
+        Data.map((match, index) => {
+          return (
+            <Placar
+              awayTeam={match.away_name}
+              date={match.time}
+              homeTeam={match.home_name}
+              score={match.score}
+              key={match.id}
+            />
+          );
+        })
+      )}
+      {/* <div className="title">
         <h2>LIVE GAMES</h2>
       </div>
       {
@@ -41,7 +57,7 @@ export default function FutureFixtures() {
             key={match.id}
           />
         );
-      })}
+      })} */}
     </div>
   );
 }
