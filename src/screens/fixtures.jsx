@@ -48,6 +48,8 @@ export default function Fixtures(props) {
               score={match.ft_score}
               key={match.id}
               chave={match.id}
+              awayId={match.away_id}
+              homeId={match.home_id}
             />
           );
         })

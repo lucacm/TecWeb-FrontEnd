@@ -3,7 +3,7 @@ import "../css/Fixtures.css";
 import history from "../history";
 
 export default function Placar(props) {
-  const { awayTeam, date, homeTeam, score, chave } = props;
+  const { awayTeam, date, homeTeam, score, chave, awayId, homeId } = props;
   return (
     <div className="title">
       <div className="date">
@@ -33,6 +33,8 @@ export default function Placar(props) {
                   date: date,
                   homeTeam: homeTeam,
                   score: score,
+                  homeId: homeId,
+                  awayId: awayId
                 },
               })
             }
@@ -53,6 +55,8 @@ export default function Placar(props) {
                   homeTeam: homeTeam,
                   date: date,
                   score: score,
+                  homeId: homeId,
+                  awayId: awayId
                 },
               })
             }

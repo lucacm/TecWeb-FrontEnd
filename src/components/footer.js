@@ -14,17 +14,12 @@ export default function Footer(){
             <div className="column">
                 <div onClick={() => history.push("/liveFixtures")} className="element">Jogos Ao Vivo</div>
                 <div onClick={() => history.push("/fixtures")} className="element">Jogos Passados</div>
-                <div onClick={() => history.push("")} className="element">Jogos Passados</div>
             </div>
             <div className="column">
                 <div onClick={() => history.push("/screens/players")} className="element">Artilharia</div>
-                <div onClick={() => history.push("")} className="element">Artilheiros</div>
-                <div onClick={() => history.push("")} className="element">Artilheiros</div>
             </div>
             <div className="column">
                 <div onClick={() => history.push("/screens/groups")} className="element">Classificação da Fase de Grupos</div>
-                <div onClick={() => history.push("")} className="element">Assistência</div>
-                <div onClick={() => history.push("")} className="element">Fase de Grupos</div>
             </div>
         </footer>
     )

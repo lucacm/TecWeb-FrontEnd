@@ -20,7 +20,6 @@ export default function Lineup(props) {
 
       const string =
       "http://livescore-api.com/api-client/matches/lineups.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&match_id=" + id;
-      console.log(string);
       axios.get(string).then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
           console.log(resp);

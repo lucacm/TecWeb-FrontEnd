@@ -13,6 +13,8 @@ export default function Match(props) {
   var [score, setScore] = useState();
   var [date, setDate] = useState("");
   var [id, setId] = useState();
+  var [away_id, setAwayId] = useState();
+  var [home_id, setHomeId] = useState();
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
@@ -22,6 +24,8 @@ export default function Match(props) {
     setHomeTeam(props.location.state.homeTeam);
     setScore(props.location.state.score);
     setDate(props.location.state.date);
+    setAwayId(props.location.state.awayId);
+    setHomeId(props.location.state.homeId);
   }, [location]);
 
   useEffect(() => {
@@ -92,6 +96,14 @@ export default function Match(props) {
           </h1>
           <h2>{awayTeam}</h2>
         </div>
+      </div>
+      <div className="center">
+        <button onClick={() => history.push({
+          pathname: '/screens/historic',
+          state: {homeId: home_id, awayId: away_id
+        }})}>
+          Histórico do Confronto
+          </button>
       </div>
     </div>
   );

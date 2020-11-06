@@ -10,6 +10,7 @@ import Login from "./screens/login";
 import Subscribe from "./screens/subscribe";
 import Lineup from "./screens/lineup";
 import Groups from "./screens/groups";
+import Historic from "./screens/historic";
 
 export default (props) => (
   <Router history={history}>
@@ -23,6 +24,7 @@ export default (props) => (
       <Route path="/screens/login" component={Login} />
       <Route path="/screens/subscribe" component={Subscribe} />
       <Route path="/screens/groups" component={Groups} />
+      <Route path="/screens/historic" component={Historic} />
       {/* <Redirect from="*" to="/fixtures" /> */}
       <Redirect from="*" to="/fixtures" />
       {/* <Redirect from="*" to="/screens/groups" /> */}
