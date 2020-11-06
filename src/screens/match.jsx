@@ -102,7 +102,7 @@ export default function Match(props) {
           pathname: '/screens/historic',
           state: {homeId: home_id, awayId: away_id
         }})}>
-          Histórico do Confronto
+          Últimas partidas de cada clube
           </button>
       </div>
     </div>

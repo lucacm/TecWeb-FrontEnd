@@ -1,0 +1,56 @@
+.container {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.subcontainer {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	width: 100%;
+}
+
+.containerPartidas {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.bla {
+	width: 20%;
+}
+
+.partidas[data-status="L"] {
+	border: 1px solid;
+	background-color: red;
+	color: #660c05;
+	text-align: center;
+	width: 100%;
+	margin: 5px;
+	border-radius: 100%;
+}
+
+.partidas[data-status="W"] {
+	border: 1px solid;
+	background-color: green;
+	color: #164116;
+	text-align: center;
+	width: 100%;
+	margin: 5x;
+	border-radius: 100%;
+}
+
+.partidas[data-status="D"] {
+	border: 1px solid;
+	background-color: gray;
+	color: #545454;
+	text-align: center;
+	width: 100%;
+	margin: 5px;
+	border-radius: 100%;
+}
