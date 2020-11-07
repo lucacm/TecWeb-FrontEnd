@@ -11,26 +11,28 @@ import Subscribe from "./screens/subscribe";
 import Lineup from "./screens/lineup";
 import Groups from "./screens/groups";
 import Historic from "./screens/historic";
+import ChangePassword from "./screens/changePassword";
 
 export default (props) => (
-  <Router history={history}>
-    <Switch>
-      <Route exatct path="/fixtures" component={Fixtures} />
-      <Route exatct path="/liveFixtures" component={liveFixtures} />
-      <Route exatct path="/futureFixtures" component={futureFixtures} />
-      <Route exatct path="/match" component={match} />
-      <Route exatct path="/lineup" component={Lineup} />
-      <Route path="/screens/players" component={Players} />
-      <Route path="/screens/login" component={Login} />
-      <Route path="/screens/subscribe" component={Subscribe} />
-      <Route path="/screens/groups" component={Groups} />
-      <Route path="/screens/historic" component={Historic} />
-      {/* <Redirect from="*" to="/fixtures" /> */}
-      <Redirect from="*" to="/fixtures" />
-      {/* <Redirect from="*" to="/screens/groups" /> */}
-      {/* <Redirect from="*" to="/screens/players" /> */}
-      {/* <Redirect from="*" to="/screens/login" /> */}
-      {/* <Redirect from="*" to="/screens/subscribe" /> */}
-    </Switch>
-  </Router>
+	<Router history={history}>
+		<Switch>
+			<Route exatct path='/fixtures' component={Fixtures} />
+			<Route exatct path='/liveFixtures' component={liveFixtures} />
+			<Route exatct path='/futureFixtures' component={futureFixtures} />
+			<Route exatct path='/match' component={match} />
+			<Route exatct path='/lineup' component={Lineup} />
+			<Route path='/screens/players' component={Players} />
+			<Route path='/screens/login' component={Login} />
+			<Route path='/screens/subscribe' component={Subscribe} />
+			<Route path='/screens/groups' component={Groups} />
+			<Route path='/screens/historic' component={Historic} />
+			<Route path='/screens/changePassword' component={ChangePassword} />
+			{/* <Redirect from="*" to="/fixtures" /> */}
+			{/* <Redirect from="*" to="/fixtures" /> */}
+			{/* <Redirect from="*" to="/screens/groups" /> */}
+			{/* <Redirect from="*" to="/screens/players" /> */}
+			<Redirect from='*' to='/screens/login' />
+			{/* <Redirect from="*" to="/screens/subscribe" /> */}
+		</Switch>
+	</Router>
 );
