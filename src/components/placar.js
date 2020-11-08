@@ -34,7 +34,7 @@ export default function Placar(props) {
                   homeTeam: homeTeam,
                   score: score,
                   homeId: homeId,
-                  awayId: awayId
+                  awayId: awayId,
                 },
               })
             }
@@ -56,7 +56,7 @@ export default function Placar(props) {
                   date: date,
                   score: score,
                   homeId: homeId,
-                  awayId: awayId
+                  awayId: awayId,
                 },
               })
             }

@@ -50,6 +50,21 @@
   font-size: 40px;
 }
 
+.squads {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.teamsheet {
+  background-color: tomato;
+  width: 49%;
+  margin-bottom: 5rem;
+}
+
 button {
   font-family: "Times New Roman", Times, serif;
   background-color: #282c34;

@@ -4,7 +4,7 @@ import { ReactComponent as ReactLogo } from "../assets/icons/football.svg";
 import { ReactComponent as ReactLogo1 } from "../assets/icons/soccer-field.svg";
 import { ReactComponent as ReactLogo2 } from "../assets/icons/prancheta.svg";
 import { useLocation } from "react-router-dom";
-import { TailSpin } from '@agney/react-loading';
+import { TailSpin } from "@agney/react-loading";
 import history from "../history";
 
 export default function Match(props) {
@@ -29,10 +29,10 @@ export default function Match(props) {
   }, [location]);
 
   useEffect(() => {
-    if (date!==""){
-      setLoading(false)
+    if (date !== "") {
+      setLoading(false);
     }
-  }, [date])
+  }, [date]);
 
   //   useEffect(() => {
   //     axios.get("").then((resp) => {
@@ -54,7 +54,15 @@ export default function Match(props) {
           onClick={() =>
             history.push({
               pathname: "/lineup",
-              state: { id: id },
+              state: {
+                id: id,
+                awayTeam: awayTeam,
+                date: date,
+                homeTeam: homeTeam,
+                score: score,
+                homeId: home_id,
+                awayId: away_id,
+              },
             })
           }
         />
@@ -62,10 +70,9 @@ export default function Match(props) {
         <ReactLogo2 className="icone" />
       </div>
       <h1 className="data">
-        {loading ?
+        {loading ? (
           <TailSpin className="title" width="80" />
-        :
-        date.length < 5 ? (
+        ) : date.length < 5 ? (
           <div>{date}</div>
         ) : (
           <div>
@@ -98,12 +105,16 @@ export default function Match(props) {
         </div>
       </div>
       <div className="center">
-        <button onClick={() => history.push({
-          pathname: '/screens/historic',
-          state: {homeId: home_id, awayId: away_id
-        }})}>
+        <button
+          onClick={() =>
+            history.push({
+              pathname: "/screens/historic",
+              state: { homeId: home_id, awayId: away_id },
+            })
+          }
+        >
           Últimas partidas de cada clube
-          </button>
+        </button>
       </div>
     </div>
   );
