@@ -3,6 +3,7 @@ import "../css/Fixtures.css";
 import axios from "axios";
 import Placar from "../components/placar";
 import { TailSpin } from "@agney/react-loading";
+import history from "../history";
 
 export default function LiveFixtures() {
   var [Data, setData] = useState([]);
@@ -28,6 +29,20 @@ export default function LiveFixtures() {
     <div className="container">
       <div className="title">
         <h2>Próximos Jogos</h2>
+      </div>
+      <div className="fixturesMenu">
+        <div
+          className="fixtureButton"
+          onClick={() => history.push("/fixtures")}
+        >
+          Jogos Passados
+        </div>
+        <div
+          className="fixtureButton"
+          onClick={() => history.push("/liveFixtures")}
+        >
+          Jogos ao Vivo
+        </div>
       </div>
       {loading ? (
         <TailSpin width="80" />

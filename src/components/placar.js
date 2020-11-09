@@ -17,9 +17,7 @@ export default function Placar(props) {
         )}
       </div>
       <section className="grid-template-columns-3">
-        <div className="item1" onClick={() => history.push("/liveFixtures")}>
-          {homeTeam.substring(0, 3).toUpperCase()}
-        </div>
+        <div className="item1">{homeTeam.substring(0, 3).toUpperCase()}</div>
 
         {score === undefined ? (
           <div
@@ -67,9 +65,7 @@ export default function Placar(props) {
             <div>{score.substring(4, 5)}</div>
           </div>
         )}
-        <div className="item2" onClick={() => history.push("/futureFixtures")}>
-          {awayTeam.substring(0, 3).toUpperCase()}
-        </div>
+        <div className="item2">{awayTeam.substring(0, 3).toUpperCase()}</div>
       </section>
     </div>
   );

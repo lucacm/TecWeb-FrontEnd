@@ -81,6 +81,20 @@ export default function Fixtures(props) {
         <div className="title">
           <h2 className="texto">Jogos Passados</h2>
         </div>
+        <div className="fixturesMenu">
+          <div
+            className="fixtureButton"
+            onClick={() => history.push("/futureFixtures")}
+          >
+            Próximos Jogos
+          </div>
+          <div
+            className="fixtureButton"
+            onClick={() => history.push("/liveFixtures")}
+          >
+            Jogos ao Vivo
+          </div>
+        </div>
         {loading ? (
           <TailSpin width="80" />
         ) : (
