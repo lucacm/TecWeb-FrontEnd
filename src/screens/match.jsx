@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../css/Match.css";
-import { ReactComponent as ReactLogo } from "../assets/icons/football.svg";
-import { ReactComponent as ReactLogo1 } from "../assets/icons/soccer-field.svg";
-import { ReactComponent as ReactLogo2 } from "../assets/icons/prancheta.svg";
+import { ReactComponent as ReactLogo } from "../assets/icons/seta.svg";
 import { useLocation } from "react-router-dom";
 import { TailSpin } from "@agney/react-loading";
 import HomeEvents from "../components/homeEvents";
+import MatchMenu from "../components/matchMenu";
 import AwayEvents from "../components/awayEvents";
 import history from "../history";
 import axios from "axios";
@@ -57,45 +56,16 @@ export default function Match(props) {
 
   return (
     <div className="container">
-      <div className="menu">
-        <ReactLogo className="icone" />
-        <div>|</div>
-        <ReactLogo1
-          className="icone1"
-          onClick={() =>
-            history.push({
-              pathname: "/lineup",
-              state: {
-                id: id,
-                awayTeam: awayTeam,
-                date: date,
-                homeTeam: homeTeam,
-                score: score,
-                homeId: home_id,
-                awayId: away_id,
-              },
-            })
-          }
-        />
-        <div>|</div>
-        <ReactLogo2
-          className="icone"
-          onClick={() =>
-            history.push({
-              pathname: "/stats",
-              state: {
-                id: id,
-                awayTeam: awayTeam,
-                date: date,
-                homeTeam: homeTeam,
-                score: score,
-                homeId: home_id,
-                awayId: away_id,
-              },
-            })
-          }
-        />
-      </div>
+      <ReactLogo className="arrow" onClick={() => history.push("/fixtures")} />
+      <MatchMenu
+        id={id}
+        awayTeam={awayTeam}
+        date={date}
+        homeTeam={homeTeam}
+        score={score}
+        homeId={home_id}
+        awayId={away_id}
+      />
       <h1>
         {loading ? (
           <TailSpin className="title" width="80" />
@@ -107,7 +77,7 @@ export default function Match(props) {
               {date.substring(8, 10)}/{date.substring(5, 7)}/
               {date.substring(0, 4)}
             </div>
-            <div className="local">Local{data.data.match.location}</div>
+            <div className="local">Estadio: {data.data.match.location}</div>
           </div>
         )}
       </h1>

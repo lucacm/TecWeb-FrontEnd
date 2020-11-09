@@ -6,10 +6,9 @@ import AwayTeamStats from "../components/awayTeamStats";
 import history from "../history";
 import { TailSpin } from "@agney/react-loading";
 
-import { ReactComponent as ReactLogo } from "../assets/icons/football.svg";
-import { ReactComponent as ReactLogo1 } from "../assets/icons/soccer-field.svg";
-import { ReactComponent as ReactLogo2 } from "../assets/icons/prancheta.svg";
+import { ReactComponent as ReactLogo } from "../assets/icons/seta.svg";
 import { useLocation } from "react-router-dom";
+import MatchMenu from "../components/matchMenu";
 
 export default function Stats(props) {
   var [data, setData] = useState([]);
@@ -58,45 +57,16 @@ export default function Stats(props) {
   }, [success]);
   return (
     <div className="container">
-      <div className="menu">
-        <ReactLogo
-          className="icone"
-          onClick={() =>
-            history.push({
-              pathname: "/match",
-              state: {
-                id: id,
-                awayTeam: awayTeam,
-                date: date,
-                homeTeam: homeTeam,
-                score: score,
-                homeId: home_id,
-                awayId: away_id,
-              },
-            })
-          }
-        />
-        <div>|</div>
-        <ReactLogo1
-          className="icone1"
-          onClick={() =>
-            history.push({
-              pathname: "/lineup",
-              state: {
-                id: id,
-                awayTeam: awayTeam,
-                date: date,
-                homeTeam: homeTeam,
-                score: score,
-                homeId: home_id,
-                awayId: away_id,
-              },
-            })
-          }
-        />
-        <div>|</div>
-        <ReactLogo2 className="icone" />
-      </div>
+      <ReactLogo className="arrow" onClick={() => history.push("/fixtures")} />
+      <MatchMenu
+        id={id}
+        awayTeam={awayTeam}
+        date={date}
+        homeTeam={homeTeam}
+        score={score}
+        homeId={home_id}
+        awayId={away_id}
+      />
       <h1>Estatísticas de jogo</h1>
       {loading ? (
         <TailSpin className="title" width="80" />

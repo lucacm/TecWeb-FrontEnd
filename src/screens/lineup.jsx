@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../css/Match.css";
 import axios from "axios";
 import Squads from "../components/squads";
-import history from "../history";
 import { TailSpin } from "@agney/react-loading";
-
-import { ReactComponent as ReactLogo } from "../assets/icons/football.svg";
-import { ReactComponent as ReactLogo1 } from "../assets/icons/soccer-field.svg";
-import { ReactComponent as ReactLogo2 } from "../assets/icons/prancheta.svg";
 import { useLocation } from "react-router-dom";
+import MatchMenu from "../components/matchMenu";
+import history from "../history";
+import { ReactComponent as ReactLogo } from "../assets/icons/seta.svg";
 
 export default function Lineup(props) {
   var [homeData, setHomeData] = useState([]);
@@ -62,45 +60,16 @@ export default function Lineup(props) {
   }, [team]);
   return (
     <div className="container">
-      <div className="menu">
-        <ReactLogo
-          className="icone"
-          onClick={() =>
-            history.push({
-              pathname: "/match",
-              state: {
-                id: id,
-                awayTeam: awayTeam,
-                date: date,
-                homeTeam: homeTeam,
-                score: score,
-                homeId: home_id,
-                awayId: away_id,
-              },
-            })
-          }
-        />
-        <div>|</div>
-        <ReactLogo1 className="icone1" />
-        <div>|</div>
-        <ReactLogo2
-          className="icone"
-          onClick={() =>
-            history.push({
-              pathname: "/stats",
-              state: {
-                id: id,
-                awayTeam: awayTeam,
-                date: date,
-                homeTeam: homeTeam,
-                score: score,
-                homeId: home_id,
-                awayId: away_id,
-              },
-            })
-          }
-        />
-      </div>
+      <ReactLogo className="arrow" onClick={() => history.push("/fixtures")} />
+      <MatchMenu
+        id={id}
+        awayTeam={awayTeam}
+        date={date}
+        homeTeam={homeTeam}
+        score={score}
+        homeId={home_id}
+        awayId={away_id}
+      />
 
       <h1>Escalação</h1>
       {loading ? (
