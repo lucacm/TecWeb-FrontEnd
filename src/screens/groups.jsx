@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../css/groups.css";
 import { TailSpin } from "@agney/react-loading";
-import Footer from "../components/footer";
 
 export default function Groups() {
 	const [data1, setData1] = useState([]);
@@ -154,19 +153,20 @@ export default function Groups() {
 				{legenda && (
 					<div className='legenda-click'>
 						<table>
-							<tr>
-								<td className='first'>1ºs</td>
-								<td>Classificados Próxima Fase</td>
-							</tr>
-							<tr>
-								<td className='second'>3º</td>
-								<td>Classificados Liga Europa</td>
-							</tr>
+							<tbody>
+								<tr>
+									<td className='first'>1ºs</td>
+									<td>Classificados Próxima Fase</td>
+								</tr>
+								<tr>
+									<td className='second'>3º</td>
+									<td>Classificados Liga Europa</td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 				)}
 			</div>
-			<Footer />
 		</div>
 	);
 }

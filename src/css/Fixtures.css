@@ -1,92 +1,98 @@
 .container {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  align-items: center;
-  align-self: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	align-items: center;
+	align-self: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .title {
-  display: flex;
-  align-self: center;
-  flex-direction: column;
+	display: flex;
+	align-self: center;
+	flex-direction: column;
 }
 
 .fixturesMenu {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 60%;
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
+	flex-direction: row;
+	width: 60%;
 }
 
 .fixtureButton {
-  background-color: tomato;
-  text-align: center;
-  width: 13rem;
-  border-radius: 7px;
-  height: 30px;
+	padding-left: 18px;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	background-color: tomato;
+	text-align: center;
+	width: 13rem;
+	border-radius: 7px;
+	height: 40px;
 }
 
 .grid-template-columns-3 {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  width: 50rem;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	width: 50rem;
 }
 
 /* Estilos Gerais */
 .item1 {
-  margin: 5px;
-  background: tomato;
-  text-align: center;
-  font-size: 1.5em;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
 }
 .item2 {
-  margin: 5px;
-  background: tomato;
-  text-align: center;
-  font-size: 1.5em;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .placar {
-  margin: 5px;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: center;
-  background: tomato;
+	margin: 5px;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	align-items: center;
+	background: tomato;
 }
 
 .date {
-  font-size: 1rem;
-  margin-left: 5px;
-  margin-top: 15px;
+	font-size: 1rem;
+	margin-left: 5px;
+	margin-top: 15px;
 }
 .texto {
-  text-align: center;
+	text-align: center;
 }
 
 .header {
-  display: flex;
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  color: white;
+	display: flex;
+	background-color: #282c34;
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	color: white;
 }
 
 .textHeader {
-  display: flex;
-  justify-content: space-between;
-  font-style: italic;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  margin-top: 1rem;
+	display: flex;
+	justify-content: space-between;
+	font-style: italic;
+	margin-left: 3rem;
+	margin-right: 3rem;
+	margin-top: 1rem;
 }
