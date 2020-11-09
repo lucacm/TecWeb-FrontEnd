@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "../css/Match.css";
+import axios from "axios";
+import TeamStats from "../components/teamStats";
+import AwayTeamStats from "../components/awayTeamStats";
+import history from "../history";
+import { TailSpin } from "@agney/react-loading";
+
 import { ReactComponent as ReactLogo } from "../assets/icons/football.svg";
 import { ReactComponent as ReactLogo1 } from "../assets/icons/soccer-field.svg";
 import { ReactComponent as ReactLogo2 } from "../assets/icons/prancheta.svg";
 import { useLocation } from "react-router-dom";
-import { TailSpin } from "@agney/react-loading";
-import HomeEvents from "../components/homeEvents";
-import AwayEvents from "../components/awayEvents";
-import history from "../history";
-import axios from "axios";
 
-export default function Match(props) {
+export default function Stats(props) {
   var [data, setData] = useState([]);
   var [awayTeam, setAwayTeam] = useState();
   var [homeTeam, setHomeTeam] = useState();
   var [score, setScore] = useState();
   var [date, setDate] = useState("");
+  var [success, setSuccess] = useState("");
   var [away_id, setAwayId] = useState();
   var [home_id, setHomeId] = useState();
-  var [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(true);
-  const [id, setId] = useState("");
   const location = useLocation();
+  const [id, setId] = useState("");
 
   useEffect(() => {
     setId(props.location.state.id);
@@ -36,11 +37,12 @@ export default function Match(props) {
   useEffect(() => {
     if (id !== "") {
       const string =
-        "http://livescore-api.com/api-client/scores/events.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&id=" +
+        "https://livescore-api.com/api-client/matches/stats.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&match_id=" +
         id;
       axios.get(string).then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
-          console.log(resp);
+          // console.log(resp.data.data.lineup.home);
+          // console.log(resp.data.data.lineup.away);
           setData(resp.data);
           setSuccess(resp.success);
         }
@@ -54,11 +56,26 @@ export default function Match(props) {
       console.log(data);
     }
   }, [success]);
-
   return (
     <div className="container">
       <div className="menu">
-        <ReactLogo className="icone" />
+        <ReactLogo
+          className="icone"
+          onClick={() =>
+            history.push({
+              pathname: "/match",
+              state: {
+                id: id,
+                awayTeam: awayTeam,
+                date: date,
+                homeTeam: homeTeam,
+                score: score,
+                homeId: home_id,
+                awayId: away_id,
+              },
+            })
+          }
+        />
         <div>|</div>
         <ReactLogo1
           className="icone1"
@@ -78,84 +95,17 @@ export default function Match(props) {
           }
         />
         <div>|</div>
-        <ReactLogo2
-          className="icone"
-          onClick={() =>
-            history.push({
-              pathname: "/stats",
-              state: {
-                id: id,
-                awayTeam: awayTeam,
-                date: date,
-                homeTeam: homeTeam,
-                score: score,
-                homeId: home_id,
-                awayId: away_id,
-              },
-            })
-          }
-        />
+        <ReactLogo2 className="icone" />
       </div>
-      <h1>
-        {loading ? (
-          <TailSpin className="title" width="80" />
-        ) : date.length < 5 ? (
-          <div>{date}</div>
-        ) : (
-          <div>
-            <div className="data">
-              {date.substring(8, 10)}/{date.substring(5, 7)}/
-              {date.substring(0, 4)}
-            </div>
-            <div className="local">Local{data.data.match.location}</div>
-          </div>
-        )}
-      </h1>
-
-      <div className="Placar">
-        <div className="times">
-          <h1>
-            {score === undefined ? (
-              <div>-</div>
-            ) : (
-              <div>{score.substring(0, 1)}</div>
-            )}
-          </h1>
-          <h2>{homeTeam}</h2>
-        </div>
-        <h1>X</h1>
-        <div className="times">
-          <h1>
-            {score === undefined ? (
-              <div>-</div>
-            ) : (
-              <div>{score.substring(4, 5)}</div>
-            )}
-          </h1>
-          <h2>{awayTeam}</h2>
-        </div>
-      </div>
+      <h1>Estatísticas de jogo</h1>
       {loading ? (
         <TailSpin className="title" width="80" />
       ) : (
         <div className="squads">
-          <HomeEvents data={data} />
-          <AwayEvents data={data} />
+          <TeamStats Data={data} homeTeam={homeTeam} />
+          <AwayTeamStats Data={data} awayTeam={awayTeam} />
         </div>
       )}
-      <div className="center">
-        <button
-          onClick={() =>
-            history.push({
-              pathname: "/screens/historic",
-              state: { homeId: home_id, awayId: away_id },
-            })
-          }
-        >
-          Últimas partidas de cada clube
-        </button>
-        <div className="matchEvents"></div>
-      </div>
     </div>
   );
 }

@@ -12,6 +12,7 @@ import Lineup from "./screens/lineup";
 import Groups from "./screens/groups";
 import Historic from "./screens/historic";
 import ChangePassword from "./screens/changePassword";
+import Stats from "./screens/stats";
 
 export default (props) => (
   <Router history={history}>
@@ -21,6 +22,7 @@ export default (props) => (
       <Route exatct path="/futureFixtures" component={futureFixtures} />
       <Route exatct path="/match" component={match} />
       <Route exatct path="/lineup" component={Lineup} />
+      <Route exatct path="/stats" component={Stats} />
       <Route path="/screens/players" component={Players} />
       <Route path="/screens/login" component={Login} />
       <Route path="/screens/subscribe" component={Subscribe} />

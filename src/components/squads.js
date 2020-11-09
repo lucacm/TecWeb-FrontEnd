@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../css/Match.css";
-import history from "../history";
-import { TailSpin } from "@agney/react-loading";
 
 export default function Squads(props) {
   const { Data } = props;

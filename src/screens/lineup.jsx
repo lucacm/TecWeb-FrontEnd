@@ -20,6 +20,7 @@ export default function Lineup(props) {
   var [team, setTeam] = useState("");
   var [away_id, setAwayId] = useState();
   var [home_id, setHomeId] = useState();
+  const [escalacao, setEscalacao] = useState(true);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const [id, setId] = useState("");
@@ -41,11 +42,13 @@ export default function Lineup(props) {
         id;
       axios.get(string).then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
-          // console.log(resp.data.data.lineup.home);
+          // console.log(string);
           // console.log(resp.data.data.lineup.away);
           setHomeData(resp.data.data.lineup.home);
           setAwayData(resp.data.data.lineup.away);
           setTeam(resp.data.data.lineup.home.team.name);
+        } else {
+          setEscalacao(false);
         }
       });
     }
@@ -80,8 +83,25 @@ export default function Lineup(props) {
         <div>|</div>
         <ReactLogo1 className="icone1" />
         <div>|</div>
-        <ReactLogo2 className="icone" />
+        <ReactLogo2
+          className="icone"
+          onClick={() =>
+            history.push({
+              pathname: "/stats",
+              state: {
+                id: id,
+                awayTeam: awayTeam,
+                date: date,
+                homeTeam: homeTeam,
+                score: score,
+                homeId: home_id,
+                awayId: away_id,
+              },
+            })
+          }
+        />
       </div>
+
       <h1>Escalação</h1>
       {loading ? (
         <TailSpin className="title" width="80" />
