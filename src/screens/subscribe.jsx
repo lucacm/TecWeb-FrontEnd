@@ -7,6 +7,7 @@ export default function Subscribe() {
   const [usuario, setUsuario] = useState({ user: "", senha: "" });
 
   function cadastrar() {
+    console.log("comecou cadastro");
     if (usuario.user.length === 0 || usuario.senha.length === 0) {
       alert("Preencha todos os campos");
     } else {
