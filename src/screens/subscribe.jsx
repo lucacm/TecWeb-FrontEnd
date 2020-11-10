@@ -13,7 +13,7 @@ export default function Subscribe() {
     } else {
       console.log(usuario);
       axios
-        .post("https://tecweb-back-champions.herokuapp.com/userlist", usuario)
+        .post("https://tecweb-back-champions.herokuapp.com/users", usuario)
         .then((resp) => {
           console.log(resp);
           if (Math.floor(resp.status / 100) === 2) {

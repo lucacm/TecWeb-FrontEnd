@@ -20,7 +20,7 @@ export default function ChangePassword(props) {
     if (id !== "") {
       setCanConfirm(true);
       axios
-        .get("https://tecweb-back-champions.herokuapp.com/userlist" + id)
+        .get("https://tecweb-back-champions.herokuapp.com/user/" + id)
         .then((resp) => {
           if (Math.floor(resp.status / 100 === 2)) {
             setAntiga(resp.data[0]["senha"]);
@@ -47,7 +47,7 @@ export default function ChangePassword(props) {
         if (usuario.senha === antiga) {
           axios
             .put(
-              "https://tecweb-back-champions.herokuapp.com/userlist" + id,
+              "https://tecweb-back-champions.herokuapp.com/users/" + id,
               newPassword
             )
             .then((resp) => {
