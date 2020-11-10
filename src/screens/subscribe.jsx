@@ -14,6 +14,7 @@ export default function Subscribe() {
       axios
         .post("https://tecweb-back-champions.herokuapp.com/userlist", usuario)
         .then((resp) => {
+          console.log(resp);
           if (Math.floor(resp.status / 100) === 2) {
             history.push({
               pathname: "../fixtures",
