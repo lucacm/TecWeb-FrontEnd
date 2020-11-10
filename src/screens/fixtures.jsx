@@ -30,7 +30,7 @@ export default function Fixtures(props) {
   useEffect(() => {
     console.log(id);
     if (id !== "") {
-      var link = "https://tecweb-back-champions.herokuapp.com/userlist" + id;
+      var link = "https://tecweb-back-champions.herokuapp.com/user/" + id;
       axios.get(link).then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
           setUser(resp.data[0]["user"]);
