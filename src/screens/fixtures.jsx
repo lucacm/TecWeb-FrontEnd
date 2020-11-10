@@ -43,7 +43,7 @@ export default function Fixtures(props) {
   useEffect(() => {
     axios
       .get(
-        "http://livescore-api.com/api-client/scores/history.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&from=2020-10-20"
+        "https://livescore-api.com/api-client/scores/history.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&from=2020-10-20"
       )
       .then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
