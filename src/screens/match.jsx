@@ -38,7 +38,7 @@ export default function Match(props) {
   useEffect(() => {
     if (id !== "") {
       const string =
-        "https://livescore-api.com/api-client/scores/events.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&id=" +
+        "https://livescore-api.com/api-client/scores/events.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&id=" +
         id;
       axios.get(string).then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
