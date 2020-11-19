@@ -9,6 +9,7 @@ import history from "../history";
 
 export default function Fixtures(props) {
   var [data, setData] = useState([]);
+  var [searchField, setSearchField] = useState('')
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState("");
   const [canShow, setCanShow] = useState(false);
@@ -53,6 +54,7 @@ export default function Fixtures(props) {
         }
       });
   }, []);
+
   return (
     <div className="header">
       {canShow && (
@@ -82,7 +84,6 @@ export default function Fixtures(props) {
           <h2 className="texto">Jogos Passados</h2>
         </div>
         <div className="fixturesMenu">
-          
           <div
             className="fixtureButton"
             onClick={() =>
@@ -106,25 +107,37 @@ export default function Fixtures(props) {
             Jogos ao Vivo
           </div>
         </div>
+        <div>
+          <input
+            placeholder="Buscar time"
+            className='search'
+            type='search'
+            onChange={e => {
+              setSearchField(e.target.value);
+            }}>
+          </input>
+        </div>
         {loading ? (
           <TailSpin width="80" />
         ) : (
-          data.map((match, index) => {
-            return (
-              <Placar
-                idUser={id}
-                awayTeam={match.away_name}
-                date={match.date}
-                homeTeam={match.home_name}
-                score={match.ft_score}
-                key={match.id}
-                chave={match.id}
-                awayId={match.away_id}
-                homeId={match.home_id}
-              />
-            );
-          })
-        )}
+            data.map((match, index) => {
+              if (match.home_name.toLowerCase().includes(searchField.toLowerCase()) || match.away_name.toLowerCase().includes(searchField.toLowerCase())) {
+                return (
+                  <Placar
+                    idUser={id}
+                    awayTeam={match.away_name}
+                    date={match.date}
+                    homeTeam={match.home_name}
+                    score={match.ft_score}
+                    key={match.id}
+                    chave={match.id}
+                    awayId={match.away_id}
+                    homeId={match.home_id}
+                  />
+                );
+              } 
+            })
+          )}
       </div>
       {!loading && <Footer idUser={id} />}
     </div>
