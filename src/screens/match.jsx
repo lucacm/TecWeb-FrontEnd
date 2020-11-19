@@ -8,7 +8,12 @@ import MatchMenu from "../components/matchMenu";
 import AwayEvents from "../components/awayEvents";
 import history from "../history";
 import axios from "axios";
-
+import {
+  FacebookShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
 export default function Match(props) {
   var [data, setData] = useState([]);
   var [awayTeam, setAwayTeam] = useState();
@@ -150,10 +155,12 @@ export default function Match(props) {
             >
               Últimas partidas de cada clube
             </button>
+            
             <div className="matchEvents"></div>
           </div>
         </>
       )}
+      
     </div>
   );
 }
