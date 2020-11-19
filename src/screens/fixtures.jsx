@@ -82,6 +82,7 @@ export default function Fixtures(props) {
           <h2 className="texto">Jogos Passados</h2>
         </div>
         <div className="fixturesMenu">
+          
           <div
             className="fixtureButton"
             onClick={() =>
