@@ -18,7 +18,7 @@ export default function Groups() {
 	useEffect(() => {
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&group=A"
+				"https://livescore-api.com/api-client/leagues/table.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&competition_id=244&group=A"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -27,7 +27,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&group=B"
+				"https://livescore-api.com/api-client/leagues/table.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&competition_id=244&group=B"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -36,7 +36,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&group=C"
+				"https://livescore-api.com/api-client/leagues/table.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&competition_id=244&group=C"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -45,7 +45,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&group=D"
+				"https://livescore-api.com/api-client/leagues/table.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&competition_id=244&group=D"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -54,7 +54,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&group=E"
+				"https://livescore-api.com/api-client/leagues/table.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&competition_id=244&group=E"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -63,7 +63,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&group=F"
+				"https://livescore-api.com/api-client/leagues/table.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&competition_id=244&group=F"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -72,7 +72,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&group=G"
+				"https://livescore-api.com/api-client/leagues/table.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&competition_id=244&group=G"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -81,7 +81,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=pspen0saaIX6HcUE&secret=9hSYKcugfodheluDNTSbUkl43jbKw5oF&competition_id=244&group=H"
+				"https://livescore-api.com/api-client/leagues/table.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&competition_id=244&group=H"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
