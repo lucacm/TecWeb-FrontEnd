@@ -143,8 +143,6 @@ export default function Match(props) {
           )}
           <div>
             <a id="myLink" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
-            {/* <button onclick={link} target="_blank">Pesquisar jogo no YouTube</button> */}
-            {/* <input type="button" value="Pesquisar jogo no YouTube" onclick={link} /> */}
             <div className="matchEvents"></div>
           </div>
           <div className="center">
