@@ -31,7 +31,7 @@ export default function Match(props) {
   const location = useLocation();
   const [future, setFuture] = useState(true);
 
-  const shareUrl = 'http://github.com';
+  const shareUrl = 'https://champions-league-frontend.herokuapp.com/screens/login';
   const [match_title, setMatchTitle] = useState("")
 
   useEffect(() => {
