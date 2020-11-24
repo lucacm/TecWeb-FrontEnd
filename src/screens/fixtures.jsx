@@ -7,6 +7,8 @@ import { useLocation } from "react-router-dom";
 import Footer from "../components/footer";
 import history from "../history";
 
+
+
 export default function Fixtures(props) {
   var [data, setData] = useState([]);
   var [searchField, setSearchField] = useState('')
@@ -16,11 +18,11 @@ export default function Fixtures(props) {
   const [canChange, setChange] = useState(false);
   const [id, setId] = useState("");
 
-  const location = useLocation();
+  //const location = useLocation();
 
-  useEffect(() => {
-    setId(props.location.state.id);
-  }, [location]);
+  // useEffect(() => {
+  //   setId(props.location.state.id);
+  // }, [location]);
 
   useEffect(() => {
     if (user !== "") {
@@ -109,14 +111,18 @@ export default function Fixtures(props) {
         </div>
         <div>
           <input
+
             placeholder="Buscar time"
-            className='search'
+            className='search-team'
             type='search'
+            id="search-team"
             onChange={e => {
               setSearchField(e.target.value);
             }}>
           </input>
         </div>
+
+
         {loading ? (
           <TailSpin width="80" />
         ) : (
@@ -129,13 +135,13 @@ export default function Fixtures(props) {
                     date={match.date}
                     homeTeam={match.home_name}
                     score={match.ft_score}
-                    //key={match.id}
+                    key={match.id}
                     chave={match.id}
                     awayId={match.away_id}
                     homeId={match.home_id}
                   />
                 );
-              } 
+              }
             })
           )}
       </div>

@@ -17,12 +17,12 @@ import Stats from "./screens/stats";
 export default (props) => (
   <Router history={history}>
     <Switch>
-      <Route exatct path="/fixtures" component={Fixtures} />
-      <Route exatct path="/liveFixtures" component={liveFixtures} />
-      <Route exatct path="/futureFixtures" component={futureFixtures} />
-      <Route exatct path="/match" component={match} />
-      <Route exatct path="/lineup" component={Lineup} />
-      <Route exatct path="/stats" component={Stats} />
+      <Route exact path="/fixtures" component={Fixtures} />
+      <Route exact path="/liveFixtures" component={liveFixtures} />
+      <Route exact path="/futureFixtures" component={futureFixtures} />
+      <Route exact path="/match" component={match} />
+      <Route exact path="/lineup" component={Lineup} />
+      <Route exact path="/stats" component={Stats} />
       <Route path="/screens/players" component={Players} />
       <Route path="/screens/login" component={Login} />
       <Route path="/screens/subscribe" component={Subscribe} />

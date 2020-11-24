@@ -1,16 +1,18 @@
 import React from 'react';
-import App from './App';
-import { mount } from 'enzyme';
+import { render, cleanup, fireEvent } from '@testing-library/react'
+import { shallow ,mount } from 'enzyme';
 import toJson from "enzyme-to-json"
+import ReactTestUtils from 'react-dom/test-utils';
+import Fixtures from './screens/fixtures';
+import App from './App'
 
 
-it("Should Render the main screen with only Chelsea games", () => {
-    const props = {
-        loading: false,
-    }
+afterEach(cleanup)
 
 
-    const app = mount(<App {...props} />)
+it('Should filter the main screen and display with only Chelsea games', function () {
+   const app = mount(<Fixtures/>)
 
-    expect(toJson(app)).toMatchSnapshot()
-})
+   expect(app.find('input').simulate('change', {target: {value: "chelsea"}})).toMatchSnapshot()
+  });
+  
