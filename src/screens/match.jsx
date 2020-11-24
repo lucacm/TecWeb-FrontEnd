@@ -8,7 +8,14 @@ import MatchMenu from "../components/matchMenu";
 import AwayEvents from "../components/awayEvents";
 import history from "../history";
 import axios from "axios";
-
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon
+} from "react-share";
 export default function Match(props) {
   var [data, setData] = useState([]);
   var [awayTeam, setAwayTeam] = useState();
@@ -25,6 +32,9 @@ export default function Match(props) {
   const [future, setFuture] = useState(true);
   var link = ('https://www.youtube.com/results?search_query='+homeTeam+'+vs+'+awayTeam+'+'+date.slice(0,4))
 
+  const shareUrl = 'https://champions-league-frontend.herokuapp.com/screens/login';
+  const [match_title, setMatchTitle] = useState("")
+
   useEffect(() => {
     setId(props.location.state.id);
     setAwayTeam(props.location.state.awayTeam);
@@ -35,7 +45,11 @@ export default function Match(props) {
     setHomeId(props.location.state.homeId);
     setIdUser(props.location.state.idUser);
   }, [location]);
-  
+
+  useEffect(()=>{
+    setMatchTitle(homeTeam + " " + score + " " + awayTeam)
+  })
+
   useEffect(() => {
     if (id !== "") {
       const string =
@@ -141,10 +155,44 @@ export default function Match(props) {
               <AwayEvents data={data} />
             </div>
           )}
+
           <div>
             <a id="myLink" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
             <div className="matchEvents"></div>
           </div>
+
+          <div className="Demo__container">
+        <div className="Demo__some-network">
+          <FacebookShareButton
+            url={shareUrl}
+            quote={match_title}
+            className="Demo__some-network__share-button"
+          >
+            <FacebookIcon size={90} round />
+          </FacebookShareButton>
+        </div>
+        <div className="Demo__some-network">
+        <TwitterShareButton
+            url={shareUrl}
+            title={match_title}
+            className="Demo__some-network__share-button"
+          >
+            <TwitterIcon size={90} round />
+          </TwitterShareButton>
+          </div>
+
+          <div className="Demo__some-network">
+          <WhatsappShareButton
+            url={shareUrl}
+            title={match_title}
+            separator=" ->"
+            className="Demo__some-network__share-button"
+          >
+            <WhatsappIcon size={90} round />
+          </WhatsappShareButton>
+        </div>
+      </div>
+
           <div className="center">
             <button
               onClick={() =>
@@ -156,11 +204,22 @@ export default function Match(props) {
             >
               Últimas partidas de cada clube
             </button>
+
             </div>
             
           
+
+
+            <div className="matchEvents"></div>
+            
+          </div>
+          
+
+
         </>
       )}
+      
+      
     </div>
   );
 }

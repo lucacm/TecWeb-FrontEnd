@@ -18,11 +18,21 @@ export default function Lineup(props) {
   var [team, setTeam] = useState("");
   var [away_id, setAwayId] = useState();
   var [home_id, setHomeId] = useState();
+  var [playersHome, setPlayersHome] = useState([]);
+  var [playersAway, setPlayersAway] = useState([]);
+
   const [escalacao, setEscalacao] = useState(true);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const [id, setId] = useState("");
   const [idUser, setUserId] = useState("");
+
+  const [searchHome, setSearchHome] = useState("");
+  const [filteredPlayersHome, setFilteredPlayersHome] = useState([]); 
+
+  const [searchAway, setSearchAway] = useState("");
+  const [filteredPlayersAway, setFilteredPlayersAway] = useState([]); 
+
 
   useEffect(() => {
     setId(props.location.state.id);
@@ -45,7 +55,9 @@ export default function Lineup(props) {
           // console.log(string);
           // console.log(resp.data.data.lineup.away);
           setHomeData(resp.data.data.lineup.home);
+          setPlayersHome(resp.data.data.lineup.home.players);
           setAwayData(resp.data.data.lineup.away);
+          setPlayersAway(resp.data.data.lineup.away.players);
           setTeam(resp.data.data.lineup.home.team.name);
         } else {
           setEscalacao(false);
@@ -60,6 +72,23 @@ export default function Lineup(props) {
       console.log(homeData);
     }
   }, [team]);
+
+  useEffect(()=>{
+    setFilteredPlayersHome (
+      playersHome.filter( player => {
+        return player.name.toLowerCase().includes(searchHome.toLowerCase())
+      })
+    )
+  }, [searchHome, playersHome])
+
+  useEffect(()=>{
+    setFilteredPlayersAway (
+      playersAway.filter( player => {
+        return player.name.toLowerCase().includes(searchAway.toLowerCase())
+      })
+    )
+  }, [searchAway, playersAway])
+
   return (
     <div className="container">
       <ReactLogo
@@ -86,9 +115,23 @@ export default function Lineup(props) {
       {loading ? (
         <TailSpin className="title" width="80" />
       ) : (
-        <div className="squads">
-          <Squads Data={homeData} />
-          <Squads Data={awayData} />
+        <div>
+          <div className="searchBar">
+          <p>
+          <input type="text" placeholder="Pesquisar jogador Home" 
+          onChange={e => setSearchHome(e.target.value)}></input>
+          </p>
+          <p>
+          <input type="text" placeholder="Pesquisar jogador Away" 
+          onChange={e => setSearchAway(e.target.value)}></input>
+          </p>
+          </div>
+          <div className="squads">
+            
+            <Squads Data={filteredPlayersHome} Datalinha={homeData}/>
+            <Squads Data={filteredPlayersAway} Datalinha={awayData}/>
+            
+          </div>
         </div>
       )}
     </div>
