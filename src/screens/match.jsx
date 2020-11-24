@@ -14,7 +14,9 @@ import {
   TwitterShareButton,
   TwitterIcon,
   WhatsappShareButton,
-  WhatsappIcon
+  WhatsappIcon,
+  EmailIcon,
+  EmailShareButton
 } from "react-share";
 export default function Match(props) {
   var [data, setData] = useState([]);
@@ -34,6 +36,7 @@ export default function Match(props) {
 
   const shareUrl = 'https://champions-league-frontend.herokuapp.com/screens/login';
   const [match_title, setMatchTitle] = useState("")
+  const email_body = match_title + "\n\n";
 
   useEffect(() => {
     setId(props.location.state.id);
@@ -187,6 +190,17 @@ export default function Match(props) {
           >
             <WhatsappIcon size={90} round />
           </WhatsappShareButton>
+        </div>
+        <div className="Demo__some-network">
+          <EmailShareButton
+            url={shareUrl}
+            subject="Checkout this Champions League game"
+            body= {email_body}
+            separator=" ->"
+            className="Demo__some-network__share-button"
+          >
+            <EmailIcon size={90} round />
+          </EmailShareButton>
         </div>
         <div className="Demo__some-network">
             <a id="myLink" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
