@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Render the main screen with only Chelsea games 1`] = `
+<App
+  loading={false}
+>
+  <_default>
+    <Router
+      history={
+        Object {
+          "action": "REPLACE",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "3hdmci",
+            "pathname": "/screens/login",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Switch>
+        <Route
+          component={[Function]}
+          computedMatch={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/screens/login",
+              "url": "/screens/login",
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "key": "3hdmci",
+              "pathname": "/screens/login",
+              "search": "",
+              "state": undefined,
+            }
+          }
+          path="/screens/login"
+        >
+          <Login
+            history={
+              Object {
+                "action": "REPLACE",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "key": "3hdmci",
+                  "pathname": "/screens/login",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "key": "3hdmci",
+                "pathname": "/screens/login",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/screens/login",
+                "url": "/screens/login",
+              }
+            }
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="title1"
+              >
+                <h2>
+                  Champions Hub
+                </h2>
+              </div>
+              <hr
+                color="#91433f"
+                size="1.5"
+                width="90%"
+              />
+              <div
+                className="card"
+              >
+                <p
+                  className="label"
+                >
+                  Entre na plataforma e acompanhe a Champions League!
+                </p>
+                <label
+                  className="label"
+                >
+                  usuário
+                </label>
+                <input
+                  className="input"
+                  id="user"
+                  name="user"
+                  onChange={[Function]}
+                  value=""
+                />
+                <label
+                  className="label"
+                >
+                  senha
+                </label>
+                <input
+                  className="input"
+                  id="senha"
+                  name="senha"
+                  onChange={[Function]}
+                  type="password"
+                  value=""
+                />
+                <button
+                  className="button"
+                  onClick={[Function]}
+                >
+                  Entrar
+                </button>
+              </div>
+              <button
+                className="button"
+                onClick={[Function]}
+              >
+                Cadastre-se
+              </button>
+            </div>
+          </Login>
+        </Route>
+      </Switch>
+    </Router>
+  </_default>
+</App>
+`;

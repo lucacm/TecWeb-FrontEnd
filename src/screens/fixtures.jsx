@@ -129,7 +129,7 @@ export default function Fixtures(props) {
                     date={match.date}
                     homeTeam={match.home_name}
                     score={match.ft_score}
-                    key={match.id}
+                    //key={match.id}
                     chave={match.id}
                     awayId={match.away_id}
                     homeId={match.home_id}
