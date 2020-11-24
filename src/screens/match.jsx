@@ -30,6 +30,7 @@ export default function Match(props) {
   const [idUser, setIdUser] = useState("");
   const location = useLocation();
   const [future, setFuture] = useState(true);
+  var link = ('https://www.youtube.com/results?search_query='+homeTeam+'+vs+'+awayTeam+'+'+date.slice(0,4))
 
   const shareUrl = 'https://champions-league-frontend.herokuapp.com/screens/login';
   const [match_title, setMatchTitle] = useState("")
@@ -48,6 +49,7 @@ export default function Match(props) {
   useEffect(()=>{
     setMatchTitle(homeTeam + " " + score + " " + awayTeam)
   })
+
   useEffect(() => {
     if (id !== "") {
       const string =
@@ -104,6 +106,7 @@ export default function Match(props) {
             score={score}
             homeId={home_id}
             awayId={away_id}
+            
           />
           <h1>
             {loading ? (
@@ -152,6 +155,12 @@ export default function Match(props) {
               <AwayEvents data={data} />
             </div>
           )}
+
+          <div>
+            <a id="myLink" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
+            <div className="matchEvents"></div>
+          </div>
+
           <div className="Demo__container">
         <div className="Demo__some-network">
           <FacebookShareButton
@@ -183,6 +192,7 @@ export default function Match(props) {
           </WhatsappShareButton>
         </div>
       </div>
+
           <div className="center">
             <button
               onClick={() =>
@@ -195,10 +205,16 @@ export default function Match(props) {
               Últimas partidas de cada clube
             </button>
 
+            </div>
+            
+          
+
+
             <div className="matchEvents"></div>
             
           </div>
           
+
 
         </>
       )}
