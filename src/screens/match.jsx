@@ -156,10 +156,7 @@ export default function Match(props) {
             </div>
           )}
 
-          <div>
-            <a id="myLink" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
-            <div className="matchEvents"></div>
-          </div>
+          
 
           <div className="Demo__container">
         <div className="Demo__some-network">
@@ -191,6 +188,10 @@ export default function Match(props) {
             <WhatsappIcon size={90} round />
           </WhatsappShareButton>
         </div>
+        <div className="Demo__some-network">
+            <a id="myLink" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
+            <div className="matchEvents"></div>
+          </div>
       </div>
 
           <div className="center">
@@ -212,7 +213,7 @@ export default function Match(props) {
 
             <div className="matchEvents"></div>
             
-          </div>
+          
           
 
 
