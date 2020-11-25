@@ -2,7 +2,7 @@ import React, { Component } from'react';
 import PropTypes from "prop-types";
 import Match from "./screens/match";
 import { shallow } from 'enzyme';
-import {FacebookShareButton, TwitterShareButton,WhatsappShareButton} from 'react-share';
+import {EmailShareButton, FacebookShareButton, TwitterShareButton,WhatsappShareButton} from 'react-share';
 
 
 // Código para resolver o conflito do useLocation (mude o location para o url do seu componente)
@@ -37,5 +37,8 @@ describe('Share Button', () => {
       });
     it('Check if Whatsapp share button was created', () => {
     expect(container.find(WhatsappShareButton).exists())
+    });
+    it('Check if E-mail share button was created', () => {
+      expect(container.find(EmailShareButton).exists())
     });
   });
