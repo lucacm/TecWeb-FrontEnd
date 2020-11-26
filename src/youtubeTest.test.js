@@ -13,30 +13,39 @@ afterEach(cleanup)
 jest.mock("react-router-dom", () => ({
    ...jest.requireActual("react-router-dom"),
    useLocation: () => ({
-     location: "localhost:3000/match"
+    state: {
+      id: '1',
+      awayTeam: 'Barcelona',
+      homeTeam: 'Ferencvaros',
+      score: '5-1',
+      date: '20-10-2020',
+      awayId:'21',
+      homeId:'1219',
+      idUser:'4'
+    }
 
    })
  }));
  describe('youtube_button', ()=>{
+  const props = {
+    location: {
+      state: {
+        id: '1',
+        awayTeam: 'Barcelona',
+        homeTeam: 'Ferencvaros',
+        score: '5-1',
+        date: '20-10-2020',
+        awayId:'21',
+        homeId:'1219',
+        idUser:'4'
+      }
+    }
+  }
+ const App = mount(<Match {...props} />);
 
     it('Should test if youtube link is correct', ()=> {
-      const props = {
-         location: {
-           state: {
-             id: '1',
-             awayTeam: 'Barcelona',
-             homeTeam: 'Ferencvaros',
-             score: '5-1',
-             date: '20-10-2020',
-             awayId:'21',
-             homeId:'1219',
-             idUser:'4'
-           }
-         }
-       }
-      const App = mount(<Match {...props} />);
       
-      expect(App.findWhere(n => n.type() === 'href' && n.contains('https://www.youtube.com/results?search_query=Barcelona+vs+Ferencvaros+2020'))).toBeDefined()
+      expect(App.findWhere(n => n.type() === 'href' && n.contains('https://www.youtube.com/results?search_query=Barcelona+vs+Ferencvaros+2020'))).toBeDefined();
    });
 
  })

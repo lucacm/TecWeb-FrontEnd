@@ -2,7 +2,7 @@ import React, { Component } from'react';
 import PropTypes from "prop-types";
 import Match from "./screens/match";
 import { shallow } from 'enzyme';
-import {EmailShareButton, FacebookShareButton, TwitterShareButton,WhatsappShareButton} from 'react-share';
+import {EmailShareButton, LinkedinShareButton, FacebookShareButton, TwitterShareButton,WhatsappShareButton} from 'react-share';
 import { getAllByAltText, getByDisplayValue, getByText } from '@testing-library/react';
 
 
@@ -41,6 +41,9 @@ describe('Share Button', () => {
     });
     it('Check if E-mail share button was created', () => {
       expect(container.find(EmailShareButton).exists()).toBeDefined()
+    });
+    it('Check if Linkedin share button was created', () => {
+      expect(container.find(LinkedinShareButton).exists()).toBeDefined()
     });
 
     
