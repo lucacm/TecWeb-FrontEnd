@@ -29,13 +29,15 @@ describe('Share Button', () => {
     const container = shallow(<Match {...initialProps} />);
   
     it('Check if Facebook share button was created', () => {
-      expect(container.find(FacebookShareButton).exists())
+      expect(container.find(FacebookShareButton)).toHaveLength(1)
     });
   
     it('Check if Twitter share button was created', () => {
-        expect(container.find(TwitterShareButton).exists())
+        expect(container.find(TwitterShareButton)).toHaveLength(1)
       });
     it('Check if Whatsapp share button was created', () => {
-    expect(container.find(WhatsappShareButton).exists())
+    expect(container.find(WhatsappShareButton)).toHaveLength(1)
     });
   });
+
+  
