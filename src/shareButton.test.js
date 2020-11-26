@@ -30,14 +30,14 @@ describe('Share Button', () => {
     const container = shallow(<Match {...initialProps} />);
   
     it('Check if Facebook share button was created', () => {
-      expect(container.find(FacebookShareButton).exists())
+      expect(container.find(FacebookShareButton).exists()).toBeDefined()
     });
   
     it('Check if Twitter share button was created', () => {
-        expect(container.find(TwitterShareButton).exists())
+        expect(container.find(TwitterShareButton).exists()).toBeDefined()
       });
     it('Check if Whatsapp share button was created', () => {
-    expect(container.find(WhatsappShareButton).exists())
+    expect(container.find(WhatsappShareButton).exists()).toBeDefined()
     });
     it('Check if E-mail share button was created', () => {
       expect(container.find(EmailShareButton).exists()).toBeDefined()
