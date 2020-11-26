@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Match from "./screens/match";
 import { shallow } from 'enzyme';
 import {EmailShareButton, FacebookShareButton, TwitterShareButton,WhatsappShareButton} from 'react-share';
+import { getAllByAltText, getByDisplayValue, getByText } from '@testing-library/react';
 
 
 // Código para resolver o conflito do useLocation (mude o location para o url do seu componente)
@@ -21,7 +22,7 @@ describe('Share Button', () => {
       awayTeam: 'Chealse',
       homeTeam: 'Juventus',
       score: '3-1',
-      date: '25/11/2020',
+      date: '25-11-2020',
       awayId:'2',
       homeId:'3',
       idUser:'4'
@@ -39,6 +40,8 @@ describe('Share Button', () => {
     expect(container.find(WhatsappShareButton).exists())
     });
     it('Check if E-mail share button was created', () => {
-      expect(container.find(EmailShareButton).exists())
+      expect(container.find(EmailShareButton).exists()).toBeDefined()
     });
+
+    
   });
