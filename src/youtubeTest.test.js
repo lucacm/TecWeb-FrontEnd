@@ -36,7 +36,7 @@ jest.mock("react-router-dom", () => ({
        }
       const App = mount(<Match {...props} />);
       
-      expect(App.findWhere(n => n.type() === 'href' && n.contains('https://www.youtube.com/results?search_query=Barcelona+vs+Juventus+2020'))).toBeDefined()
+      expect(App.findWhere(n => n.type() === 'href' && n.contains('https://www.youtube.com/results?search_query=Barcelona+vs+Ferencvaros+2020'))).toBeDefined()
    });
 
  })
