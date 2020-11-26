@@ -16,7 +16,9 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
   EmailIcon,
-  EmailShareButton
+  EmailShareButton,
+  LinkedinIcon,
+  LinkedinShareButton
 } from "react-share";
 export default function Match(props) {
   var [data, setData] = useState([]);
@@ -33,6 +35,7 @@ export default function Match(props) {
   const location = useLocation();
   const [future, setFuture] = useState(true);
   var link = ('https://www.youtube.com/results?search_query='+homeTeam+'+vs+'+awayTeam+'+'+date.slice(0,4))
+  console.log("HOME, AWAY, IDHOME, IDAWAY: ",homeTeam, awayTeam, home_id, away_id)
 
   const shareUrl = 'https://champions-league-frontend.herokuapp.com/screens/login';
   const [match_title, setMatchTitle] = useState("")
@@ -222,7 +225,19 @@ export default function Match(props) {
           </EmailShareButton>
         </div>
         <div className="Demo__some-network">
-            <a id="myLink" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
+          <LinkedinShareButton
+            url={shareUrl}
+            source={shareUrl}
+            title="Checkout this Champions League game"
+            description= {email_body}
+            separator=" ->"
+            className="Demo__some-network__share-button"
+          >
+            <LinkedinIcon size={90} round />
+          </LinkedinShareButton>
+        </div>
+        <div className="Demo__some-network">
+            <a id="youtube_link" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
             <div className="matchEvents"></div>
           </div>
       </div>
