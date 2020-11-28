@@ -17,6 +17,8 @@ export default function Fixtures(props) {
   const [canShow, setCanShow] = useState(false);
   const [canChange, setChange] = useState(false);
   const [id, setId] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+  
 
   //const location = useLocation();
 
@@ -52,6 +54,7 @@ export default function Fixtures(props) {
         if (Math.floor(resp.status / 100 === 2)) {
           // console.log(resp.data.data.match);
           setData(resp.data.data.match);
+          setFilteredData(resp.data.data.match)
           setLoading(false);
         }
       });
@@ -109,7 +112,52 @@ export default function Fixtures(props) {
             Jogos ao Vivo
           </div>
         </div>
+        <div style={{ display: "flex", width: "100%", justifyContent: "space-evenly" }}>
+          <button className="home-won-button" onClick={e => {
+            var homeWon = [];
+            data.map((match) => {
+              
+              const scoreHome = Number(match.ft_score[0]);
+              const scoreAway = Number(match.ft_score[4]);
+              if (scoreHome > scoreAway) {
+                homeWon.push(match);
+              }
+            });
+            setFilteredData(homeWon);
+
+          }
+          }>Home Won</button>
+          <button className="tie-button" onClick={e => {
+            var tie = [];
+            data.map((match) => {
+              const scoreHome = Number(match.ft_score[0]);
+              const scoreAway = Number(match.ft_score[4])
+              if (scoreHome == scoreAway) {
+                tie.push(match);
+              }
+            });
+            setFilteredData(tie)
+
+          }}>Tie</button>
+          <button className="away-won-button" onClick={e => {
+            var awayWon = [];
+            data.map((match) => {
+              const scoreHome = Number(match.ft_score[0]);
+              const scoreAway = Number(match.ft_score[4])
+              if (scoreHome < scoreAway) {
+                awayWon.push(match);
+              }
+            });
+            setFilteredData(awayWon)
+
+          }}>Away Won</button>
+          <button onClick={e => {
+            setFilteredData(data)
+
+          }}>All</button>
+        </div>
         <div>
+
           <input
 
             placeholder="Buscar time"
@@ -126,7 +174,7 @@ export default function Fixtures(props) {
         {loading ? (
           <TailSpin width="80" />
         ) : (
-            data.map((match, index) => {
+            filteredData.map((match, index) => {
               if (match.home_name.toLowerCase().includes(searchField.toLowerCase()) || match.away_name.toLowerCase().includes(searchField.toLowerCase())) {
                 return (
                   <Placar
@@ -146,6 +194,6 @@ export default function Fixtures(props) {
           )}
       </div>
       {!loading && <Footer idUser={id} />}
-    </div>
+    </div >
   );
 }
