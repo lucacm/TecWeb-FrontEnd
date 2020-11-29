@@ -8,6 +8,7 @@ import MatchMenu from "../components/matchMenu";
 import AwayEvents from "../components/awayEvents";
 import history from "../history";
 import axios from "axios";
+import logo from "../assets/img/Barcelona.png";
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -37,6 +38,36 @@ export default function Match(props) {
   const shareUrl = 'https://champions-league-frontend.herokuapp.com/screens/login';
   const [match_title, setMatchTitle] = useState("")
   const email_body = match_title + "\n\n";
+
+  if (score != null) {
+  var score1 = score.substring(0,1)
+  var score2 = score.substring(4,5)
+  var subt = score1 - score2
+  console.log("subt: "+subt);
+};
+
+// if (homeTeam != null) {
+//   var path = "../assets/img/" + homeTeam + ".png"
+//   import escudo1 from path
+//   console.log(" escudo: " + escudo1)
+// };
+
+// if (awayTeam != null){
+//   var path2 = "../assets/img/" + awayTeam + ".png"
+//   import escudo2 from path2
+//   console.log("escudo2: " + escudo2)
+// };
+
+function importAll(r) {
+  return r.keys().map(r);
+}
+
+const images = importAll(require.context('../assets/img', false, /.(png|jpe?g|svg)$/));
+
+console.log("string: " + images);
+
+
+
 
   useEffect(() => {
     setId(props.location.state.id);
@@ -82,6 +113,7 @@ export default function Match(props) {
   }, [future]);
 
   console.log(future);
+
 
   return (
     <div className="container">
@@ -135,19 +167,29 @@ export default function Match(props) {
                 ) : (
                   <div>{score.substring(0, 1)}</div>
                 )}
+                <img src={images[homeTeam]} alt="homeTeam shield"></img>
+                {subt > 0 ? (
+                  <div style={{color:'green'}}> {homeTeam} </div>) 
+                    : subt < 0 ? (
+                      <div style = {{color:'red'}}> {homeTeam} </div>)
+                    : <div style = {{color:'yellow'}}> {homeTeam} </div>}
               </h1>
-              <h2>{homeTeam}</h2>
             </div>
             <h1>X</h1>
             <div className="times">
               <h1>
                 {score === undefined ? (
-                  <div>-</div>
+                  <div>-</div> 
                 ) : (
                   <div>{score.substring(4, 5)}</div>
                 )}
+                <img src={images[awayTeam]} alt="awayTeam shield"></img>
+                {subt > 0 ? (
+                  <div style={{color:'red'}}> {awayTeam} </div>) 
+                    : subt < 0 ? (
+                      <div style = {{color:'green'}}> {awayTeam} </div>)
+                    : <div style = {{color:'yellow'}}> {awayTeam} </div>}
               </h1>
-              <h2>{awayTeam}</h2>
             </div>
           </div>
           {loading ? (
