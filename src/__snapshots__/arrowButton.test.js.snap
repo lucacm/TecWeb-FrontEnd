@@ -5,3 +5,9 @@ exports[`Check if Arrow button was created 1`] = `false`;
 exports[`Check if Arrow button was created 2`] = `false`;
 
 exports[`Check if Arrow button was created 3`] = `false`;
+
+exports[`Check if Arrow button was created in screen Groups 1`] = `false`;
+
+exports[`Check if Arrow button was created in screen LiveFixtures 1`] = `false`;
+
+exports[`Check if Arrow button was created in screen Players 1`] = `false`;

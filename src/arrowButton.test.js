@@ -20,17 +20,17 @@ jest.mock("react-router-dom", () => ({
 
 afterEach(cleanup)
 
-it('Check if Arrow button was created', () => {
+it('Check if Arrow button was created in screen Groups', () => {
     const app = shallow(<Groups/>)
     expect(app.find('arrow').exists()).toMatchSnapshot()
 });
 
-it('Check if Arrow button was created', () => {
+it('Check if Arrow button was created in screen Players', () => {
     const app = shallow(<Players/>)
     expect(app.find('arrow').exists()).toMatchSnapshot()
 });
 
-it('Check if Arrow button was created', () => {
+it('Check if Arrow button was created in screen LiveFixtures', () => {
     const app = shallow(<LiveFixtures/>)
     expect(app.find('arrow').exists()).toMatchSnapshot()
 });
