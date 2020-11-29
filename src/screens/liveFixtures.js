@@ -5,12 +5,14 @@ import Placar from "../components/placar";
 import { TailSpin } from "@agney/react-loading";
 import history from "../history";
 import { useLocation } from "react-router-dom";
+import { ReactComponent as ReactLogo } from "../assets/icons/seta.svg";
+
 
 export default function LiveFixtures(props) {
   var [Data, setData] = useState([]);
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(true);
-
+	const [idUser, setIdUser] = useState("");
   const location = useLocation();
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export default function LiveFixtures(props) {
   useEffect(() => {
     axios
       .get(
-        "https://livescore-api.com/api-client/scores/live.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&from=2020-10-20"
+        "https://livescore-api.com/api-client/scores/live.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&from=2020-10-20"
       )
       .then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
@@ -32,6 +34,15 @@ export default function LiveFixtures(props) {
   }, []);
   return (
     <div className="container">
+      <ReactLogo
+            className="arrow"
+            onClick={() =>
+              history.push({
+                pathname: "/fixtures",
+                state: { id: idUser },
+              })
+            }
+          />
       <div className="title">
         <h2>Ao vivo</h2>
       </div>

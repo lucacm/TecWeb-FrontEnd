@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../css/groups.css";
 import { TailSpin } from "@agney/react-loading";
+import { ReactComponent as ReactLogo } from "../assets/icons/seta.svg";
+import history from "../history";
 
 export default function Groups() {
 	const [data1, setData1] = useState([]);
@@ -14,11 +16,13 @@ export default function Groups() {
 	const [data8, setData8] = useState([]);
 	const [legenda, setLegenda] = useState(false);
 	const [loading, setLoading] = useState(true);
+	const [idUser, setIdUser] = useState("");
+
 
 	useEffect(() => {
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&group=A"
+				"https://livescore-api.com/api-client/leagues/table.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&group=A"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -27,7 +31,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&group=B"
+				"https://livescore-api.com/api-client/leagues/table.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&group=B"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -36,7 +40,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&group=C"
+				"https://livescore-api.com/api-client/leagues/table.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&group=C"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -45,7 +49,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&group=D"
+				"https://livescore-api.com/api-client/leagues/table.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&group=D"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -54,7 +58,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&group=E"
+				"https://livescore-api.com/api-client/leagues/table.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&group=E"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -63,7 +67,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&group=F"
+				"https://livescore-api.com/api-client/leagues/table.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&group=F"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -72,7 +76,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&group=G"
+				"https://livescore-api.com/api-client/leagues/table.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&group=G"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -81,7 +85,7 @@ export default function Groups() {
 			});
 		axios
 			.get(
-				"https://livescore-api.com/api-client/leagues/table.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&group=H"
+				"https://livescore-api.com/api-client/leagues/table.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&group=H"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -133,6 +137,15 @@ export default function Groups() {
 
 	return (
 		<div className='container'>
+			<ReactLogo
+            className="arrow"
+            onClick={() =>
+              history.push({
+                pathname: "/fixtures",
+                state: { id: idUser },
+              })
+            }
+          />
 			<div className='title'>
 				<h1> Classificação dos Grupos </h1>
 			</div>

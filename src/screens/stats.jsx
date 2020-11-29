@@ -44,7 +44,7 @@ export default function Stats(props) {
 	useEffect(() => {
 		if (id !== "") {
 			const string =
-				"https://livescore-api.com/api-client/matches/stats.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&match_id=" +
+				"https://livescore-api.com/api-client/matches/stats.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&match_id=" +
 				id;
 			axios.get(string).then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {

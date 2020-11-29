@@ -2,15 +2,21 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/players.css";
 import { TailSpin } from "@agney/react-loading";
+import { ReactComponent as ReactLogo } from "../assets/icons/seta.svg";
+import history from "../history";
+
+
 
 export default function Players() {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [idUser, setIdUser] = useState("");
+
 
 	useEffect(() => {
 		axios
 			.get(
-				"https://livescore-api.com/api-client/competitions/goalscorers.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244"
+				"https://livescore-api.com/api-client/competitions/goalscorers.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244"
 			)
 			.then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
@@ -23,6 +29,15 @@ export default function Players() {
 
 	return (
 		<div className='container'>
+          <ReactLogo
+            className="arrow"
+            onClick={() =>
+              history.push({
+                pathname: "/fixtures",
+                state: { id: idUser },
+              })
+            }
+          />
 			<div className='title'>
 				<h1> Artilharia </h1>
 			</div>

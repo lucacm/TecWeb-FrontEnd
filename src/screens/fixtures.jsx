@@ -48,7 +48,7 @@ export default function Fixtures(props) {
   useEffect(() => {
     axios
       .get(
-        "https://livescore-api.com/api-client/scores/history.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&competition_id=244&from=2020-10-20"
+        "https://livescore-api.com/api-client/scores/history.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&competition_id=244&from=2020-10-20"
       )
       .then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {

@@ -48,6 +48,26 @@ export default function Match(props) {
   console.log("subt: "+subt);
 };
 
+// if (homeTeam != null) {
+//   var path = "../assets/img/" + homeTeam + ".png"
+//   import escudo1 from path
+//   console.log(" escudo: " + escudo1)
+// };
+
+// if (awayTeam != null){
+//   var path2 = "../assets/img/" + awayTeam + ".png"
+//   import escudo2 from path2
+//   console.log("escudo2: " + escudo2)
+// };
+
+// function importAll(r) {
+//   return r.keys().map(r);
+// }
+
+// const images = importAll(require.context('../assets/img', false, /.(png|jpe?g|svg)$/));
+
+// console.log("string: " + images);
+
 
 
 
@@ -69,7 +89,7 @@ export default function Match(props) {
   useEffect(() => {
     if (id !== "") {
       const string =
-        "https://livescore-api.com/api-client/scores/events.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&id=" +
+        "https://livescore-api.com/api-client/scores/events.json?key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug&id=" +
         id;
       axios.get(string).then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
