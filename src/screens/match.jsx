@@ -8,7 +8,18 @@ import MatchMenu from "../components/matchMenu";
 import AwayEvents from "../components/awayEvents";
 import history from "../history";
 import axios from "axios";
-
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  EmailIcon,
+  EmailShareButton,
+  LinkedinIcon,
+  LinkedinShareButton
+} from "react-share";
 export default function Match(props) {
   var [data, setData] = useState([]);
   var [awayTeam, setAwayTeam] = useState();
@@ -23,6 +34,22 @@ export default function Match(props) {
   const [idUser, setIdUser] = useState("");
   const location = useLocation();
   const [future, setFuture] = useState(true);
+  var link = ('https://www.youtube.com/results?search_query='+homeTeam+'+vs+'+awayTeam+'+'+date.slice(0,4))
+  console.log("HOME, AWAY, IDHOME, IDAWAY: ",homeTeam, awayTeam, home_id, away_id)
+
+  const shareUrl = 'https://champions-league-frontend.herokuapp.com/screens/login';
+  const [match_title, setMatchTitle] = useState("")
+  const email_body = match_title + "\n\n";
+
+  if (score != null) {
+  var score1 = score.substring(0,1)
+  var score2 = score.substring(4,5)
+  var subt = score1 - score2
+  console.log("subt: "+subt);
+};
+
+
+
 
   useEffect(() => {
     setId(props.location.state.id);
@@ -35,10 +62,14 @@ export default function Match(props) {
     setIdUser(props.location.state.idUser);
   }, [location]);
 
+  useEffect(()=>{
+    setMatchTitle(homeTeam + " " + score + " " + awayTeam)
+  })
+
   useEffect(() => {
     if (id !== "") {
       const string =
-        "https://livescore-api.com/api-client/scores/events.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&id=" +
+        "https://livescore-api.com/api-client/scores/events.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&id=" +
         id;
       axios.get(string).then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
@@ -64,6 +95,7 @@ export default function Match(props) {
   }, [future]);
 
   console.log(future);
+
 
   return (
     <div className="container">
@@ -91,6 +123,7 @@ export default function Match(props) {
             score={score}
             homeId={home_id}
             awayId={away_id}
+            
           />
           <h1>
             {loading ? (
@@ -116,19 +149,27 @@ export default function Match(props) {
                 ) : (
                   <div>{score.substring(0, 1)}</div>
                 )}
+                {subt > 0 ? (
+                  <div style={{color:'green'}}> {homeTeam} </div>) 
+                    : subt < 0 ? (
+                      <div style = {{color:'red'}}> {homeTeam} </div>)
+                    : <div style = {{color:'yellow'}}> {homeTeam} </div>}
               </h1>
-              <h2>{homeTeam}</h2>
             </div>
             <h1>X</h1>
             <div className="times">
               <h1>
                 {score === undefined ? (
-                  <div>-</div>
+                  <div>-</div> 
                 ) : (
                   <div>{score.substring(4, 5)}</div>
                 )}
+                {subt > 0 ? (
+                  <div style={{color:'red'}}> {awayTeam} </div>) 
+                    : subt < 0 ? (
+                      <div style = {{color:'green'}}> {awayTeam} </div>)
+                    : <div style = {{color:'yellow'}}> {awayTeam} </div>}
               </h1>
-              <h2>{awayTeam}</h2>
             </div>
           </div>
           {loading ? (
@@ -139,6 +180,68 @@ export default function Match(props) {
               <AwayEvents data={data} />
             </div>
           )}
+
+          
+
+          <div className="Demo__container">
+        <div className="Demo__some-network">
+          <FacebookShareButton
+            url={shareUrl}
+            quote={match_title}
+            className="Demo__some-network__share-button"
+          >
+            <FacebookIcon size={90} round />
+          </FacebookShareButton>
+        </div>
+        <div className="Demo__some-network">
+        <TwitterShareButton
+            url={shareUrl}
+            title={match_title}
+            className="Demo__some-network__share-button"
+          >
+            <TwitterIcon size={90} round />
+          </TwitterShareButton>
+          </div>
+
+          <div className="Demo__some-network">
+          <WhatsappShareButton
+            url={shareUrl}
+            title={match_title}
+            separator=" ->"
+            className="Demo__some-network__share-button"
+          >
+            <WhatsappIcon size={90} round />
+          </WhatsappShareButton>
+        </div>
+        <div className="Demo__some-network">
+          <EmailShareButton
+            url={shareUrl}
+            subject="Checkout this Champions League game"
+            body= {email_body}
+            separator=" ->"
+            className="Demo__some-network__share-button"
+          >
+            <EmailIcon size={90} round />
+          </EmailShareButton>
+        </div>
+        <div className="Demo__some-network">
+          <LinkedinShareButton
+            url={shareUrl}
+            source={shareUrl}
+            title="Checkout this Champions League game"
+            description= {email_body}
+            separator=" ->"
+            className="Demo__some-network__share-button"
+          >
+            <LinkedinIcon size={90} round />
+          </LinkedinShareButton>
+        </div>
+        <div className="Demo__some-network">
+            <a id="youtube_link" href={link} target="_blank"> <img src="https://www.interstellarrift.com/wiki/images/d/d8/Youtube-logo-png-photo-0.png" alt="Pesquisar vídeo no YouTube" width="150" height="125" ></img></a>
+            <div className="matchEvents"></div>
+          </div>
+      </div>
+
           <div className="center">
             <button
               onClick={() =>
@@ -150,10 +253,22 @@ export default function Match(props) {
             >
               Últimas partidas de cada clube
             </button>
+
+            </div>
+            
+          
+
+
             <div className="matchEvents"></div>
-          </div>
+            
+          
+          
+
+
         </>
       )}
+      
+      
     </div>
   );
 }
