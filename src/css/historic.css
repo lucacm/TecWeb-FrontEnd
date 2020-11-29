@@ -54,3 +54,29 @@
 	margin: 5px;
 	border-radius: 100%;
 }
+
+.legenda {
+	width: 150px;
+	height: 5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 45rem;
+	margin-bottom: 20rem;
+}
+
+.legenda-click {
+	align-self: center;
+}
+
+.firstW {
+	background-color: green;
+}
+
+.secondD {
+	background-color: yellow;
+}
+
+.thirdL {
+	background-color: red;
+}
