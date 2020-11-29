@@ -24,7 +24,7 @@ export default function Historic(props) {
 			homeId +
 			"&team2_id=" +
 			awayId +
-			"&key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ";
+			"&key=SRZOUsPuvEwIkhxO&secret=EHaP6he0Yd38axu3otSjWHNrlkaFBHug";
 		if (!(homeId === "" || awayId === "")) {
 			axios.get(url).then((resp) => {
 				if (Math.floor(resp.status / 100 === 2)) {
