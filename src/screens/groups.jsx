@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../css/groups.css";
 import { TailSpin } from "@agney/react-loading";
+import { ReactComponent as ReactLogo } from "../assets/icons/seta.svg";
+import history from "../history";
 
 export default function Groups() {
 	const [data1, setData1] = useState([]);
@@ -14,6 +16,8 @@ export default function Groups() {
 	const [data8, setData8] = useState([]);
 	const [legenda, setLegenda] = useState(false);
 	const [loading, setLoading] = useState(true);
+	const [idUser, setIdUser] = useState("");
+
 
 	useEffect(() => {
 		axios
@@ -133,6 +137,15 @@ export default function Groups() {
 
 	return (
 		<div className='container'>
+			<ReactLogo
+            className="arrow"
+            onClick={() =>
+              history.push({
+                pathname: "/fixtures",
+                state: { id: idUser },
+              })
+            }
+          />
 			<div className='title'>
 				<h1> Classificação dos Grupos </h1>
 			</div>

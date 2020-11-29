@@ -8,7 +8,6 @@ import MatchMenu from "../components/matchMenu";
 import AwayEvents from "../components/awayEvents";
 import history from "../history";
 import axios from "axios";
-import logo from "../assets/img/Barcelona.png";
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -61,13 +60,13 @@ export default function Match(props) {
 //   console.log("escudo2: " + escudo2)
 // };
 
-function importAll(r) {
-  return r.keys().map(r);
-}
+// function importAll(r) {
+//   return r.keys().map(r);
+// }
 
-const images = importAll(require.context('../assets/img', false, /.(png|jpe?g|svg)$/));
+// const images = importAll(require.context('../assets/img', false, /.(png|jpe?g|svg)$/));
 
-console.log("string: " + images);
+// console.log("string: " + images);
 
 
 
@@ -170,7 +169,6 @@ console.log("string: " + images);
                 ) : (
                   <div>{score.substring(0, 1)}</div>
                 )}
-                <img src={images[homeTeam]} alt="homeTeam shield"></img>
                 {subt > 0 ? (
                   <div style={{color:'green'}}> {homeTeam} </div>) 
                     : subt < 0 ? (
@@ -186,7 +184,6 @@ console.log("string: " + images);
                 ) : (
                   <div>{score.substring(4, 5)}</div>
                 )}
-                <img src={images[awayTeam]} alt="awayTeam shield"></img>
                 {subt > 0 ? (
                   <div style={{color:'red'}}> {awayTeam} </div>) 
                     : subt < 0 ? (
