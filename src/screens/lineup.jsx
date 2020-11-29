@@ -112,20 +112,20 @@ export default function Lineup(props) {
       />
 
       <h1>Escalação</h1>
+      
+      <div>
+        <input type="text" placeholder="Pesquisar jogador Home" 
+        onChange={e => setSearchHome(e.target.value)}></input>
+      </div>
+      <div>
+        <input type="text" placeholder="Pesquisar jogador Away" 
+        onChange={e => setSearchAway(e.target.value)}></input>
+      </div>
+
       {loading ? (
         <TailSpin className="title" width="80" />
       ) : (
         <div>
-          <div className="searchBar">
-          <p>
-          <input type="text" placeholder="Pesquisar jogador Home" 
-          onChange={e => setSearchHome(e.target.value)}></input>
-          </p>
-          <p>
-          <input type="text" placeholder="Pesquisar jogador Away" 
-          onChange={e => setSearchAway(e.target.value)}></input>
-          </p>
-          </div>
           <div className="squads">
             
             <Squads Data={filteredPlayersHome} Datalinha={homeData}/>
