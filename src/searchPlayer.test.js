@@ -48,14 +48,14 @@ jest.mock("react-router-dom", () => ({
      it('Should render search Home results for Lionel Messi', function () {
         expect(App.find('input').at(0).simulate('change', {target: {value: "Lionel Messi"}})).toMatchSnapshot()
 
-        // Printando no console para certificar de que o teste está sendo feito no input correto.
+        // Printando no console para certificar de que o teste está sendo feito no input correto (Home).
         console.log(App.find('input').at(0).simulate('change', {target: {value: "Lionel Messi"}}).debug())
     });
 
     it('Should render search Away results for David Siger', function () {
         expect(App.find('input').at(1).simulate('change', {target: {value: "David Siger"}})).toMatchSnapshot()
 
-        // Printando no console para certificar de que o teste está sendo feito no input correto.
+        // Printando no console para certificar de que o teste está sendo feito no input correto (Away).
         console.log(App.find('input').at(1).simulate('change', {target: {value: "David Siger"}}).debug())
     });
  
