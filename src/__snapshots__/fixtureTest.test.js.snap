@@ -2,4 +2,10 @@
 
 exports[`Should Render the main screen with only Chelsea games 1`] = `ReactWrapper {}`;
 
+exports[`Should filter the main screen and display games won by away team 1`] = `ReactWrapper {}`;
+
+exports[`Should filter the main screen and display games won by home team 1`] = `ReactWrapper {}`;
+
+exports[`Should filter the main screen and display tied games 1`] = `ReactWrapper {}`;
+
 exports[`Should filter the main screen and display with only Chelsea games 1`] = `ReactWrapper {}`;

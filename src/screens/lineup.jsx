@@ -48,7 +48,7 @@ export default function Lineup(props) {
   useEffect(() => {
     if (id !== "") {
       const string =
-        "https://livescore-api.com/api-client/matches/lineups.json?key=TtvAHQJefYqIf7u4&secret=ZyAeui2NEXH1v6woz2ZgTIv8HWRX3l23&match_id=" +
+        "https://livescore-api.com/api-client/matches/lineups.json?key=75EAnOEtACPoyibW&secret=1VKxHPQZaFR5rSYyXD9lrNP1qFqYXCUZ&match_id=" +
         id;
       axios.get(string).then((resp) => {
         if (Math.floor(resp.status / 100 === 2)) {
@@ -112,20 +112,20 @@ export default function Lineup(props) {
       />
 
       <h1>Escalação</h1>
+      
+      <div>
+        <input type="text" placeholder="Pesquisar jogador Home" 
+        onChange={e => setSearchHome(e.target.value)}></input>
+      </div>
+      <div>
+        <input type="text" placeholder="Pesquisar jogador Away" 
+        onChange={e => setSearchAway(e.target.value)}></input>
+      </div>
+
       {loading ? (
         <TailSpin className="title" width="80" />
       ) : (
         <div>
-          <div className="searchBar">
-          <p>
-          <input type="text" placeholder="Pesquisar jogador Home" 
-          onChange={e => setSearchHome(e.target.value)}></input>
-          </p>
-          <p>
-          <input type="text" placeholder="Pesquisar jogador Away" 
-          onChange={e => setSearchAway(e.target.value)}></input>
-          </p>
-          </div>
           <div className="squads">
             
             <Squads Data={filteredPlayersHome} Datalinha={homeData}/>
