@@ -9,6 +9,7 @@ export default function Historic(props) {
 	const [homeId, setHomeId] = useState("");
 	const [awayId, setAwayId] = useState("");
 	const [loading, setLoading] = useState(true);
+	const [legenda, setLegenda] = useState(false);
 
 	const [team1, setTeam1] = useState({});
 	const [team2, setTeam2] = useState({});
@@ -81,6 +82,29 @@ export default function Historic(props) {
 								))}
 							</div>
 						</div>
+					</div>
+					<div onClick={() => setLegenda(true)}>
+						<h6>legenda</h6>
+						{legenda && (
+							<div>
+								<table style={{width: 200 + 'px'}}>
+									<tbody>
+										<tr>
+											<td className='firstW'>W</td>
+											<td>Vitória (Win)</td>
+										</tr>
+										<tr>
+											<td className='secondD'>D</td>
+											<td>Empate (Draw)</td>
+										</tr>
+										<tr>
+											<td className='thirdL'>L</td>
+											<td>Derrota (Loss)</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						)}
 					</div>
 				</>
 			)}
